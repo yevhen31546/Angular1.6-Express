@@ -1,0 +1,55 @@
+/*
+Next 4: settings create the border of the diagram
+*/
+svg g.nv-y.nv-axis > g > g:nth-child(1) > g >line{
+  opacity: 0 !important;
+}
+svg g > g.nv-y.nv-axis > g > g:nth-child(1) > g:first-child >line{
+  opacity: 0.5 !important;
+}
+/*Y-axis values make visible*/
+svg g.nv-y.nv-axis > g > g:nth-child(1) > g > text{
+  opacity: 0.5 !important;
+}
+svg  g.nv-x.nv-axis > g > g:nth-child(1) > g > line{
+  opacity: 0 !important;
+}
+
+
+
+
+
+
+/*axis value text*/
+.tick text{
+  font-size:0.6em !important;
+  opacity:0.6 !important;
+}
+
+/*hide big values form y axis*/
+.nv-axisMaxMin{ display: none !important;}
+
+// X-Axis
+.nv-y .tick.zero line { stroke: $light-gray !important; opacity:0.5 !important; }
+// Y-Axis
+.nv-y .nv-axis g path.domain { stroke: $light-gray !important; opacity:0.5 }
+
+
+.nv-bar {
+ background-color:white !important;
+ border:1px solid red !important;
+}
+
+/*Dashed Life Exp. line*/
+.lifeExpectLine{
+  border:none;
+ border-top:1px dotted #f00;
+ color:#fff;
+ background-color:#fff;
+ height:1px;
+}
+
+
+svg h1,svg h2,svg h3,svg h4,svg h5{
+  font-size:12px !important;
+}

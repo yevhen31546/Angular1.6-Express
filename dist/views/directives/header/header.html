@@ -1,0 +1,20 @@
+<header ng-show="hideHeader.showHeader" ng-attr-style="background-color:{{ appData.branding.mainColor }}; color:{{ appData.branding.headerFontColor }};">
+<nav class="navbar">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand hidden-xs hidden-sm" ng-attr-style="color:{{ appData.branding.headerFontColor }};" href="/">
+          <img ng-attr-style="height:80px;" ng-src="{{ appData.branding.headerlogo }}">
+      </a>
+      <a ng-hide="companyScreen.hide" href="/" class="navbar-text" ng-attr-style="color:{{ appData.branding.headerFontColor }};"> {{ companyScreen.display }}</a>
+
+    </div>
+    <p class="navbar-text" ng-attr-style="padding-left:15px; color:{{ appData.branding.headerFontColor }};">Retirement Options Planner</p>
+<!--<
+    <p class="navbar-text navbar-right text-right" ng-attr-style="color:{{ appData.branding.headerFontColor }};">
+      <span>Question? Contact the experts at Lemonade</span>
+      br><span class="glyphicon glyphicon-phone-alt"></span> 000 00 00 00
+    </p>-->
+  </div>
+</nav>
+
+</header>

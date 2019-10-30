@@ -1,0 +1,20 @@
+$ropColor:#6ab9b3;
+$fontColor:#565656;
+$darkGray: #707070;
+
+
+/*PRINT Overlay*/
+.printBottomLine{
+  position:fixed;
+  left:0px;
+  bottom:0px;
+  width:100%;
+  height:100%;
+  background-color:rgba(0,0,0,0.3);
+  z-index:2900 !important;
+}
+
+.printCharts{
+  .tick { opacity:1 !important; }
+  .nv-axisMaxMin text { opacity:0 !important; }
+}

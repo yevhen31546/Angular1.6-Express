@@ -1,0 +1,42 @@
+<div class="container container-table">
+    <div class="startbox row vertical-center-row">
+        <div class="text-center col-xs-12">
+          <div class="mainarea boxshadow paddingTop30 paddingBottom30">
+              <div class="row paddingTop20 paddingBottom20">
+                  <div class="col-xs-12 text-center paddingTop20"><img ng-attr-style="width:240px;" ng-src=" {{appData.branding.logo }}"></div>
+                  <div class="col-xs-12 text-center">
+                    <h1 ng-hide="companyScreen.hide" class="uppercase" ng-attr-style="color:{{ appData.branding.mainColor}}">
+                      {{ companyScreen.display }}
+                    </h1>
+                  </div>
+                  <div class="col-xs-12 text-center"><h2>Retirement Options Planner</h2></div>
+                  <div class="col-xs-12  paddingTop20 paddingBottom20">
+                    <p style="padding-left: 30px; padding-right: 30px">
+                      Use this tool to:
+                      <br/>
+                      · Review when you can afford to retire
+                      <br/>
+                      · View your options for taking your pension
+                      <br/>
+                      <br/>
+                      <b>This tool is an illustrative tool showing possible retirement options and is not tailored to the personal circumstances of an individual.</b>
+                      <br/>
+                      <b>It should not be used for quotation or recommendation for you personally.</b>
+                      <br/>
+                      <b>Any decision on your retirement options should be with the benefit of independent financial advice.</b>
+                      <br/>
+                      <b>Contact AskHR to find out your Retirement options within the Investor Plan.</b>
+                    </p>
+                  </div>
+                  <div class="col-xs-12 text-center paddingTop20 paddingBottom20">
+                      <div class="text-center" ng-controller="ModalController as ModalCtrl" ng-init="init(appData.branding)">
+                      <button ng-attr-style="background-color:{{ appData.branding.mainColorLight }} !important;" class="button"
+                              ng-click="ModalCtrl.open('beforeStart', 'lg')">START NOW
+                      </button>
+                      </div>
+                  </div>
+              </div>
+          </div><!--mainarea-->
+       </div>
+    </div>
+</div>

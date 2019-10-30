@@ -1,0 +1,84 @@
+.clone{
+
+    select{
+          display:inline;
+          width:60px;
+          height:39px;
+          font-weight:400;
+          letter-spacing: 1px;
+          font-size:12px;
+          text-transform: uppercase;
+          -webkit-border-radius: 3px;
+          -moz-border-radius: 3px;
+          border-radius: 3px;
+           border: 1px solid $light-gray;
+    }
+
+    input {
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+      border-radius: 3px;
+      text-transform: uppercase;
+      border: 1px solid $light-gray;
+      height:39px;
+      padding-left:6px;
+      font-size:12px;
+    }
+
+    .final{
+      input {
+        width:80px !important;
+        display:inline !important;
+      }
+      button {
+        font-size:10px;
+        background-color:$light-gray;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        border:none;
+        color:white;
+      }
+    }
+
+    button.final-remove{
+      background:none;
+      border:none;
+      color:#e9004c !important;
+      font-size:16px;
+      position:absolute;
+      top:10px;
+      left:6px;
+    }
+    button.final-remove:hover{
+      background:none;
+      border:none;
+      color: darken(#e9004c,15%) !important;
+
+    }
+
+    .coloneError{
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+      border-radius: 3px;
+      font-size:11px;
+      color: $red;
+      background-color:#efefef;
+      border: 1px solid #e2e2e2;
+      margin-top:8px;
+      padding:4px;
+      width:80%;
+    }
+
+    /*Money Sing for money filds*/
+    input.money{
+      padding-left:25px;
+    }
+    .moneysign{
+      position:absolute;
+      left:28px;
+      top:43px;
+      color:#d4d4d4;
+    }
+
+}//clone

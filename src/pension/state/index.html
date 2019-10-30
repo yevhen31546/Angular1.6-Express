@@ -1,0 +1,115 @@
+<!-- <section ng-controller="AgeController" >
+ <personal-form></personal-form>
+</section> -->
+<section ng-controller="StateController" >
+  <div class="section padding-bottom-40  paddingTop20">
+  <div class="container">
+    <div class="row boxshadow">
+      <div class="col-xs-12 mainarea ">
+        <main-menu></main-menu>
+            <!--AGE Content-->
+              <div class="row paddingTop20">
+                  <div class="col-xs-12" ng-attr-style="color:{{ appData.branding.mainColorDark }}">
+                    <h5 class="bold text-center paddingTop30 uppercase mainColor">YOUR PENSIONS</h5>
+                  </div>
+                <div class="col-xs-12">
+                  <h4 class="text-center paddingTop20 tooltip-container">
+                    Should we include your State Pension?
+                    <div class="tooltip"><i class="fas fa-info-circle fa-lg"></i>
+                      <span class="tooltiptext">
+                        How is the State Pension calculated?
+                        <br><br><br>
+                        If you are a man born on or after 6 April 1951 or a woman born on or after 6 <br/> April 1953 then we assume you’ll get the full amount of the new State <br/> Pension in force from 6 April 2016 - but the amount you get depends on your National Insurance Contribution record. You may get more or less than this.
+                        <br><br>
+                        If you were born before these dates, we assume you are receiving the full <br/> basic State Pension that applied up to 5 April 2016.
+                        <br><br>
+                        You can find out more about the new State Pension and how to get a State <br/> Pension statement <a target="_blank" href="https://www.yourpension.gov.uk/">here</a>.
+                    </span>
+                  </h4>
+                </div>
+              </div><!--row-->
+
+              <div class="row">
+                  <div class="col-xs-12 col-sm-8 col-sm-offset-2" ng-attr-style="color:{{ appData.branding.mainColorDark }}">
+                    <div class="text-center paddingTop10 paddingBottom30 font11">
+                          <!--STATE SELECTION-->
+                          <div class="col-xs-12 col-sm-8 col-sm-offset-2 paddingTop20 paddingTop30" ng-attr-style="color:{{ appData.branding.mainColorDark }}">
+                            <div class="row text-center paddingTop10 paddingBottom30 font11">
+
+                                  <div class="col-xs-6 nopadding">
+                                    <label class="fullwidth">
+                                      <input type="radio" name="state" value="yes" ng-model="state" />
+                                      <div class="mainColorDark stateBox"  ng-click="state_f('yes')" ng-class="{'inactiveField':state=='yes'}">Yes</div>
+                                    </label>
+                                  </div>
+                                  <div class="col-xs-6 nopadding">
+                                    <label class="fullwidth">
+                                      <input type="radio" name="state" value="no" ng-model="state"/>
+                                      <div class="mainColorDark stateBox" ng-click="state_f('no')"  ng-class="{'inactiveField':state=='no'}">No</div>
+                                    </label>
+                                  </div>
+                            </div><!--row-->
+                          </div>
+                    </div>
+                  </div>
+              </div><!--div-->
+          <!--End: Pension Content-->
+          <div class="row paddingBottom20">
+            <div class="col-xs-12 text-center font08">Your Annual State Pension Assumption</div>
+            <div class="col-xs-12 text-center font09">
+              <input  class="text-center" type="text" ng-model="userStatePension" ><!--format="currency"-->
+            </div>
+          </div><!--row-->
+
+      </div>
+      <steps></steps>
+    </div><!--row-->
+  </div>
+</div><!--scetion class-->
+</section>
+
+  </div>
+</div>
+</section>
+<style>
+  .tooltip-container .tooltip {
+    position: relative;
+    display: inline-block;
+  }
+  .tooltip-container .tooltip i {
+    font-size: 16px;
+    vertical-align: super;
+  }
+  .tooltip-container .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 500px;
+    background-color: black;
+    color: #fff;
+    text-align: left;
+    border-radius: 6px;
+    padding: 5px 5px 5px 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -250px;
+    font-size: 12px;
+    word-break: break-all;
+  }
+  
+  .tooltip .tooltiptext::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: black transparent transparent transparent;
+  }
+  
+  .tooltip:hover .tooltiptext {
+      visibility: visible;
+  }
+  </style>
+    

@@ -1,0 +1,67 @@
+<section>
+<div class="col-xs-12 paddingLeftRight50">
+
+
+
+  <!--logo-->
+ <div class="row">
+  <div class="col-xs-12 text-center paddingTop40">
+      <img ng-attr-style="height:80px;" ng-src=" {{appData.branding.logo }}">
+      <div class="dismiss-button" ng-click="ModalInstCtrl.cancel()">&times;</div>
+  </div>
+  </div><!--row-->
+  <!--header-->
+  <div class="row">
+  <div class="col-xs-12  paddingTop40">
+    <div class="font07 uppercase fontColorLight">Option selection</div>
+    <div class="bold font17">Annuity</div>
+  </div>
+  </div><!--row-->
+
+  <!--init text-->
+  <div class="row">
+  <div class="col-xs-12 font09  paddingTop30">
+    A friendly Lemonade adviser will discuss your requirements and search the market for the best rate. They will also ask questions regarding your state of health, as any issues could increase your income. Finally, they will arrange the transfer from your pension scheme.
+  </div>
+  </div><!--row-->
+
+
+  <!--btn-->
+  <div class="row paddingTop40 paddingBottom30 text-center">
+    <div class="col-xs-offset-3 col-xs-6 text-center">
+      <div ng-controller="ModalController as ModalCtrl" ng-init="init(appData.branding)">
+        <button class="button btn-block font09 bgcolorMain fontHederColor uppercase text-center" ng-click="ModalCtrl.open('contact', 'md')">Speak to an expert</button>
+      </div>
+    </div>
+
+  </div><!--row-->
+
+
+
+  <!--What does it cost?-->
+  <div class="row paddingTop40">
+    <div class="col-xs-12 col-sm-5 text-right">
+          <div class="font11 bold">What does it cost?</div>
+    </div>
+    <div class="col-xs-12 col-sm-7 ">
+      <div class="font08">The typical cost is 1.5% of your fund to select and set up your annuity. The 1.5% is applied to the remaining fund after you have taken your tax free cash.</div>
+    </div>
+  </div><!--row-->
+  <!--How do I pay-->
+  <div class="row  paddingTop40 paddingBottom30">
+    <div class="col-xs-12 col-sm-5 text-right">
+          <div class="font11 bold">How do I pay?</div>
+    </div>
+    <div class="col-xs-12 col-sm-7 ">
+      <div class="font08">The cost can be taken from your pension pot, or you can pay directly if you prefer.</div>
+    </div>
+  </div><!--row-->
+
+
+
+
+
+
+
+
+</section><!--main cover-->

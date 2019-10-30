@@ -1,0 +1,49 @@
+<!-- <section ng-controller="AgeController" >
+ <personal-form></personal-form>
+</section> -->
+<section ng-controller="SalaryController" >
+  <div class="section padding-bottom-40  paddingTop20">
+  <div class="container">
+    <div class="row boxshadow">
+      <div class="col-xs-12 mainarea ">
+        <main-menu></main-menu>
+            <!--salary Content-->
+              <div class="row paddingTop20">
+                  <div class="col-xs-12" ng-attr-style="color:{{ appData.branding.mainColorDark }}">
+                    <h5 class="bold text-center paddingTop30 uppercase mainColor">Your contributions</h5>
+                  </div>
+              </div><!--row-->
+              <div class="row paddingTop20">
+                    <h4 class="text-center paddingTop20 ">Your current annual earnings before tax including bonuses and commissions but not overtime.</h4>
+                </div><!--row-->
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4" ng-attr-style="color:{{ appData.branding.mainColorDark }}">
+                      <div class="text-center paddingTop10 paddingBottom20 font11">
+                        <div class="row paddingTop10 paddingBottom10">
+                          <div class="col-xs-12">
+                            <input ng-blur="getSalary()" ng-class="{'inactiveField':salary>0}" type="text" ng-pattern="/^(\d)+$/" required ng-model="salary" name="" placeholder="Salary Before Tax" class="form-control">
+                              <div class="col-xs-12 inactiveFieldLabel" ng-show="salary>0">Salary Before Tax</div>
+                          </div>
+                        </div><!--row-->
+                      </div>
+                    </div>
+                </div><!--row-->
+                <div class="row paddingTop10 paddingBottom30" ng-show="salary>0">
+                    <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+                        <div class="mainColorLight font08 bold ">Your Salary Before Tax</div>
+                        <div class="bold font17">{{ salary | currency : "£" :0  }}</div>
+                    </div>
+                </div><!--row-->
+          <!--End: salary-->
+      </div>
+      <steps></steps>
+    </div><!--row-->
+  </div>
+</div><!--scetion class-->
+</section>
+
+
+
+  </div>
+</div>
+</section>

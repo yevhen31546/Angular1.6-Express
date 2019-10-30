@@ -1,0 +1,347 @@
+<style>
+  .tooltip {
+      position: relative;
+      display: inline-block;
+  }
+  
+  .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 200px;
+      background-color: black;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 5px 5px 5px 5px;
+      position: absolute;
+      z-index: 1;
+      bottom: 150%;
+      left: 50%;
+      margin-left: -105px;
+  }
+
+  .tooltip .tooltiptext.small {
+      width: 50px;
+      bottom: 150%;
+      left: 50%;
+      margin-left: -25px;
+  }
+  
+  .tooltip .tooltiptext::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: black transparent transparent transparent;
+  }
+  
+  .tooltip:hover .tooltiptext {
+      visibility: visible;
+  }
+</style>
+<section ng-controller="TableController">
+  <div class="section padding-bottom-40  paddingTop20">
+  <div class="container">
+    <div class="row boxshadow">
+      <div class="col-xs-12 mainarea ">
+        <main-menu></main-menu>
+            <!--OPTION TABLE Content-->
+
+
+                        <!--head line-->
+                        <div class="row paddingTop30 paddingBottom30">
+                            <div class="col-xs-12 col-sm-6">
+                                <div class="row">
+                                  <div class="col-xs-12 col-sm-6">
+                                    <div class="mainColorLight font07 bold uppercase">Total Pension Pot At Retirement</div>
+                                    <div class="mainColorDark font15 bold">{{ calc.pensionFundAtRetirement.fullFuturePension | currency : "£" :0  }}</div>
+                                  </div>
+                                  <div class="col-xs-12 col-sm-6">
+                                    <div class="mainColorLight font07 bold uppercase">Target Retirement age</div>
+                                    <div class="mainColorDark font15 bold">
+                                      <span ng-click="updateRetAge('minus')" class="retAgeBox mainColorLight"><span class="glyphicon glyphicon-triangle-left"></span></span><span class="retAgeNum">{{ about_ret  }}</span><span class="retAgeBox mainColorLight"><span ng-click="updateRetAge('plus')" class="glyphicon glyphicon-triangle-right"></span></span>
+                                    </div>
+                                  </div>
+                                </div><!--row-->
+                            </div>
+                            <div class="col-xs-12 col-sm-6 uppercase text-right">
+                              <div class="row">
+
+
+                                <div class="col-xs-12 col-sm-4 font07 text-left">
+                                  Maintain income
+                                  <br>
+                                  in real terms:
+                                  <div class="tooltip"><i class="fas fa-info-circle fa-lg"></i>
+                                    <span class="tooltiptext" style="text-transform: none;">
+                                      By ticking this box you are adding annual increases to the cost of living.
+                                    </span>
+                                  </div>
+                                  <input ng-model="realterms" ng-true-value="'yes'" ng-false-value="'no'"  type="checkbox">
+                                </div>
+
+                                <div class="col-xs-12 col-sm-3 font07 text-left">
+                                  <a class="colorLightGray" target="_blank" href="https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/lifeexpectancies/articles/howlongwillmypensionneedtolast/2015-03-27">
+                                     <span class="glyphicon glyphicon-info-sign"></span> Life<br>Expectancy
+                                  </a>
+                                </div>
+
+                                <div class="col-xs-12 col-sm-5 text-right">
+                                  <span class="midboxlink bgcolorMain borderMain font08" ng-attr-style="color:#ffffff;">Cards</span><a class="midboxlink inactive font08"   href='/options/annuity'>Charts</a>
+                                </div>
+                              </div><!--row-->
+
+                            </div>
+                        </div><!--row-->
+
+            <!--options-->
+            <div class="options">
+                <div class="col-xs-12 col-sm-4 paddingTop20 paddingBottom20">
+                  <div class="optionBox">
+                      <div class="head text-center font12 fontHederColor bgcolorDark">Flexible Drawdown </div>
+                      <div class="option">
+                              <table>
+                                <tr>
+                                  <td ng-attr-style="width:20%;" class="tdborder name"><div class="lumpsum uppercase">Lump<br>Sum</div></td>
+                                  <td ng-attr-style="width:10%;" class="tdborder name">
+                                    <div class="tooltip"><i class="fas fa-info-circle fa-lg"></i>
+                                      <span class="tooltiptext">
+                                        The Lifetime Allowance (LTA) is a limit on your total pension fund from all sources and is currently £1,055,000. Tax free cash is limited to 25% of your remaining LTA.
+                                      </span>
+                                    </div>
+                                  </td>
+                                  <td ng-attr-style="width:30%;" class="tdborder name"><div class="taxfree uppercase text-center bgGreen fontHederColor">Tax<br>Free</div></td>
+                                  <td ng-attr-style="width:40%;" class="tdborder font11 bold">{{ calc.pensionFundAtRetirement.tcfValue | currency : "£" :0   }}</td>
+                                </tr>
+                              </table>
+                              <table>
+                                <tr>
+                                  <td ng-attr-style="width:60%;" class="tdborder name"><div class="lumpsum uppercase">Income Each Year<br>before tax</div></td>
+                                  <td ng-attr-style="width:40%;" class="tdborder font11 bold">{{ calc.flexible.requiredIncome | currency : "£" :0   }}</td>
+                                </tr>
+                              </table>
+                              <table>
+                                <tr>
+                                  <td ng-attr-style="width:60%;" class="tdborder name"><div class="lumpsum uppercase">Income Lasts<br>Until</div></td>
+                                  <td ng-attr-style="width:20%;" class="tdborder font11 bold">{{ calc.flexibleChart.runOut.x }}</td>
+                                  <td ng-attr-style="width:20%;" class="tdborder name"><div class="lumpsum uppercase">Years<br>Old</div></td>
+                                </tr>
+                              </table>
+                              <table>
+                                <tr>
+                                  <td ng-attr-style="width:60%;" class=" name"><div class="lumpsum uppercase">Total payments by age {{ calc.annuityLongevity.lifeExpectancy }}<br>+ Remaining fund</div></td>
+                                  <td ng-attr-style="width:40%;" class=" font11 bold">{{ calc.flexible.totalpayment | currency : "£" :0   }}</td>
+                                </tr>
+                              </table>
+                              <table>
+                                <tr>
+                                  <td ng-attr-style="width:100%;" class="name"><div class="lumpsum font08 text-center">Check your financial flexibility using our charts feature!</div></td>
+                                </tr>
+                              </table>
+                              <table>
+                                <tr>
+                                  <td ng-attr-style="width:50%; padding-right:4px;" class="name text-center"><a ng-attr-style="color:#ffffff;" class="button-width bgInverse" href="/options/flexible">CHART</a></td>
+                                  <td ng-attr-style="width:50%; padding-left:4px;" class="name text-center">
+                                      <div ng-controller="ModalController as ModalCtrl" ng-init="init(appData.branding)">
+                                        <button ng-attr-style="color:#ffffff;" class="bgInverse button-width uppercase" ng-click="ModalCtrl.open('flexible', 'lg')">Learn  <span class="hidden-xs hidden-sm">More</span></button>
+                                      </div>
+                                  </td>
+                                </tr>
+                              </table>
+                              <!-- <table>
+                                <tr>
+                                  <td ng-attr-style="width:100%;padding-top:0px;" class="name text-center">
+                                    <div ng-controller="ModalController as ModalCtrl" ng-init="init(appData.branding)">
+                                      <a ng-click="ModalCtrl.open('proceedFlexible', 'lg')" ng-attr-style="background-color:{{ appData.branding.mainColorLight }}" class="button btn-block pointer bold font17 letterSpacing3">PROCEED</a>
+                                    </div>
+                                  </td>
+                                </tr>
+                              </table> -->
+                      </div><!--option-->
+                </div><!--optionBox-->
+              </div>
+                <div class="col-xs-12 col-sm-4 paddingTop20 paddingBottom20">
+                  <div class="optionBox">
+                      <div class="head text-center font12 fontHederColor bgcolorDark">Annuity</div>
+                      <div class="option">
+                              <table>
+                                <tr>
+                                  <td ng-attr-style="width:20%;" class="tdborder name"><div class="lumpsum uppercase">Lump<br>Sum</div></td>
+                                  <td ng-attr-style="width:10%;" class="tdborder name"><div class="tooltip"><i class="fas fa-info-circle fa-lg"></i>
+                                    <span class="tooltiptext">The Lifetime Allowance (LTA) is a limit on your total pension fund from all sources and is currently £1,055,000. Tax free cash is limited to 25% of your remaining LTA.</span></div></td>
+                                  <td ng-attr-style="width:30%;" class="tdborder name"><div class="taxfree uppercase text-center bgGreen fontHederColor">Tax<br>Free</div></td>
+                                  <td ng-attr-style="width:40%;" class="tdborder font11 bold">{{ calc.pensionFundAtRetirement.tcfValue | currency : "£" :0   }}</td>
+                                </tr>
+                              </table>
+                              <table>
+                                <tr>
+                                  <td ng-attr-style="width:60%;" class="tdborder name"><div class="lumpsum uppercase">Income Each Year<br>before tax</div></td>
+                                  <td ng-attr-style="width:40%;" class="tdborder font11 bold">{{ calc.annuity.eachYearBeforeTax | currency : "£" :0   }}</td>
+                                </tr>
+                              </table>
+                              <table>
+                                <tr>
+                                  <td ng-attr-style="width:50%;" class="tdborder name"><div class="lumpsum uppercase">Income Lasts<br>Until</div></td>
+                                  <td ng-attr-style="width:50%;" class="tdborder font11 bold text-center">Income for life</td>
+                                </tr>
+                              </table>
+                              <table>
+                                <tr>
+                                  <td ng-attr-style="width:60%;" class=" name"><div class="lumpsum uppercase">Total payments by age {{ calc.annuityLongevity.lifeExpectancy }}</div></td>
+                                  <td ng-attr-style="width:40%;" class=" font11 bold">{{ calc.annuity.totalpayment | currency : "£" :0   }}</td>
+                                </tr>
+                              </table>
+                              <table>
+                                <tr>
+                                  <td ng-attr-style="width:100%;" class="name"><div class="lumpsum font08 text-center">Check your financial flexibility using our charts feature!</div></td>
+                                </tr>
+                              </table>
+                              <table>
+                                <tr>
+                                  <td ng-attr-style="width:50%; padding-right:4px;" class="name text-center"><a ng-attr-style="color:#ffffff;" class="button-width bgInverse" href="/options/annuity">CHART</a></td>
+                                  <td ng-attr-style="width:50%; padding-left:4px;" class="name text-center">
+                                    <div ng-controller="ModalController as ModalCtrl" ng-init="init(appData.branding)">
+                                      <button ng-attr-style="color:#ffffff;" class="bgInverse button-width uppercase" ng-click="ModalCtrl.open('annuity', 'lg')">Learn <span class="hidden-xs hidden-sm">More</span></button>
+
+                                    </div>
+                                  </td>
+                                </tr>
+                              </table>
+                              <!-- <table>
+                                <tr>
+                                  <td ng-attr-style="width:100%;padding-top:0px;" class="name text-center">
+                                    <div ng-controller="ModalController as ModalCtrl" ng-init="init(appData.branding)">
+                                        <a ng-click="ModalCtrl.open('proceedAnnuity', 'lg')"  ng-attr-style="background-color:{{ appData.branding.mainColorLight }}" class="button btn-block pointer bold font17 letterSpacing3" >PROCEED</a>
+                                    </div>
+                                  </td>
+                                </tr>
+                              </table> -->
+                      </div><!--option-->
+                </div><!--optionBox-->
+                </div>
+                <div class="col-xs-12 col-sm-4 paddingTop20 paddingBottom20">
+                  <div class="optionBox">
+                      <div class="head text-center font12 fontHederColor bgcolorDark">Cash Out</div>
+                      <div class="option">
+                              <table>
+                                <tr>
+                                  <td ng-attr-style="width:20%;" class="tdborder name"><div class="lumpsum uppercase">Lump<br>Sum</div></td>
+                                  <td ng-attr-style="width:10%;" class="tdborder name"><div class="tooltip"><i class="fas fa-info-circle fa-lg"></i>
+                                    <span class="tooltiptext">The Lifetime Allowance (LTA) is a limit on your total pension fund from all sources and is currently £1,055,000. Tax free cash is limited to 25% of your remaining LTA.</span></div></td>
+                                  <td ng-attr-style="width:30%;" class="tdborder name"><div class="taxfree uppercase text-center bgGreen fontHederColor">Tax<br>Free</div></td>
+                                  <td ng-attr-style="width:40%;" class="tdborder font11 bold">{{ calc.pensionFundAtRetirement.tcfValue | currency : "£" :0   }}</td>
+                                </tr>
+                              </table>
+                              <table>
+                                <tr>
+                                  <td ng-attr-style="width:60%;" class="tdborder name"><div class="lumpsum uppercase">Estimated<br>Tax Charge</div></td>
+                                  <td ng-attr-style="width:40%;" class="tdborder font11 bold">{{ calc.cashOut.taxLumpSum  | currency : "£" :0   }}</td>
+                                </tr>
+                              </table>
+                              <table>
+                                <tr>
+                                  <td ng-attr-style="width:60%;" class="tdborder name"><div class="lumpsum uppercase">Income Lasts<br>Until</div></td>
+                                  <td ng-attr-style="width:40%;" class="tdborder font11 bold">No Income</td>
+                                </tr>
+                              </table>
+                              <table>
+                                <tr>
+                                  <td ng-attr-style="width:60%;" class=" name"><div class="lumpsum uppercase">Total payments</div></td>
+                                  <td ng-attr-style="width:40%;" class=" font11 bold">{{ calc.pensionFundAtRetirement.fullFuturePension | currency : "£" :0   }}</td>
+                                </tr>
+                              </table>
+                              <table>
+                                <tr>
+                                  <td ng-attr-style="width:100%;" class="name"><div class="lumpsum font08 text-center">Check your financial flexibility using our charts feature!</div></td>
+                                </tr>
+                              </table>
+                              <table>
+                                <tr>
+                                  <td ng-attr-style="width:50%; padding-right:4px;" class="name text-center"><a ng-attr-style="color:#ffffff;" class="button-width bgInverse" href="/options/cashout">CHART</a></td>
+                                  <td ng-attr-style="width:50%; padding-left:4px;" class="name text-center">
+                                    <div ng-controller="ModalController as ModalCtrl" ng-init="init(appData.branding)">
+                                      <button ng-attr-style="color:#ffffff;" class="bgInverse button-width uppercase" ng-click="ModalCtrl.open('cashout', 'lg')">Learn <span class="hidden-xs hidden-sm">More</span></button>
+                                    </div>
+                                  </td>
+                                </tr>
+                              </table>
+                              <!-- <table>
+                                <tr>
+                                  <td ng-attr-style="width:100%;padding-top:0px;" class="name text-center">
+                                    <div ng-controller="ModalController as ModalCtrl" ng-init="init(appData.branding)">
+                                        <a ng-click="ModalCtrl.open('proceedCashout', 'lg')"  ng-attr-style="background-color:{{ appData.branding.mainColorLight }}" class="button btn-block pointer bold font17 letterSpacing3">PROCEED</a>
+                                    </div>
+                                  </td>
+                                </tr>
+                              </table> -->
+                      </div><!--option-->
+                </div><!--optionBox-->
+                </div>
+
+
+            </div><!--row-->
+
+
+            <!--fix flexibel income, empty for !flexible And Realterms-->
+            <div class="row fixFlexibleIncome font07 "></div>
+
+
+
+
+
+
+
+
+          <!--End: OPTION TABLE Content--->
+      </div>
+
+
+
+
+    </div><!--row-->
+
+
+    <!--Review Entry and Advanced Settings-->
+    <div class="paddingTopBottom20">
+      <!--Review Entry and Advanced Settings-->
+      <div class="row">
+        <!--special link PopUp for last step-->
+        <div class="col-xs-2 text-center paddingTop10 paddingBottom10 ">
+        <div class="nopadding" ng-controller="ModalController as ModalCtrl" ng-init="init(appData.branding)">
+            <a class="pointer colorLightGray" ng-click="ModalCtrl.open('review', 'lg')"><span class="glyphicon glyphicon-eye-open"></span> Review</a>
+        </div>
+      </div>
+        <div class="col-xs-3 text-center paddingTop10 paddingBottom10">
+                <a href='/options/settings?source=cards' class="pointer colorLightGray"><span class="glyphicon glyphicon-cog"></span> Assumptions</a>
+        </div>
+        <div class="col-xs-2 text-center paddingTop10 paddingBottom10 text-center">
+              <a href="/print" class="pointer colorLightGray"><span class="glyphicon glyphicon-print"></span> Print</a>
+        </div>
+        <div class="col-xs-3 text-center paddingTop10 paddingBottom10">
+                <a target="_blank" href='{{ clonelink }}' class="pointer colorLightGray"><span class="glyphicon glyphicon-duplicate"></span> Duplicate</a>
+
+        </div>
+        <div class="col-xs-2 text-center paddingTop10 paddingBottom10">
+              <a href="#" class="pointer colorLightGray" ng-click="reset()"><span class="glyphicon glyphicon-repeat"></span> Reset</a>
+        </div>
+      </div><!--row-->
+
+    </div>
+
+     <!-- <speak-to-expert></speakToExpert> -->
+
+
+  </div>
+
+
+
+
+</div><!--scetion class-->
+
+
+
+
+
+</section>

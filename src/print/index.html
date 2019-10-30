@@ -1,0 +1,48 @@
+<section ng-controller="PrintController">
+  <!--Chart-->
+  <div  id="charts" class="printCharts" style="height:800px; width:1600px;">
+    <div ng-repeat="chart in chartTypes" >
+        <div ng-init="whichChart=chartTypes[$index];chartHeigth='800px'">
+          <div class="text-center col-xs-12">{{ chartNames[$index] }}</div>
+          <div class="">
+          <print-chart whichChart="{{ whichChart }}"></print-chart>
+          </div>
+        </div>
+      </div>
+    </div><!--charts-->
+    </div><!--scetion class-->
+
+    <!-- The overlay -->
+    <div id="myNav" class="overlay"><!---->
+      <div class="container ">
+        <div class="overlay-content  boxshadow">
+            <!--STEP 1. Generate the PDF-->
+            <div ng-show='generatePDF' class="text-center paddingTop30">
+              <div><img src="images/simple_dots.GIF"></div>
+            <h2 class="font15">Just a minute, we are generating your PDF.</h2>
+          </div><!--End: Step 1-->
+          <!--STEP 2. send emial-->
+          <div ng-show='sendmail'>
+            <form name="printForm" class="printform" ng-submit="submitForm(printForm)">
+              <div class="text-center font13 paddingTopBottom20">Where can we send your summary?</div>
+                <div class='paddingTopBottom10'>
+                  <input style="font-size:13px;" required type="email" name="useremail" ng-model="useremail" placeholder="Your email address" class="form-control">
+                </div>
+                  <div class='paddingTopBottom10'>
+                      <button id="printPDF" class="button bgcolorLight form-control">SEND</button>
+                  </div>
+            </form>
+          </div><!--end: Step 2
+          <!--Process finished -->
+          <div ng-show='finished' class="text-center">
+            <div><img ng-show='showdots' src="images/simple_dots.GIF"></div>
+            <h2 class="font13">{{ resp }}</small></h2>
+          <p ng-hide='showdots' class="paddingTopBottom30">
+            <br><br><br>
+            <span ng-click="endOfPrint()" class="pointer bgInverse fontHederColor button uppercase"><span class="glyphicon glyphicon-chevron-left"></span> Go back</span>
+          </p>
+        </div><!--End: finished-->
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,445 @@
+html,body {
+  height: 100%;
+  color:#4a4a4a;
+  letter-spacing: 1px;
+  font-size:15px;
+}
+
+
+/* Hide content for mobiles */
+#notMobile{display:none !important; }
+#mobile{display:block !important; }
+
+   @media only screen and (min-width : 767px) {
+      #notMobile{ display:block !important; }
+      #mobile{display:none !important; }
+   }
+
+
+
+a{
+text-decoration:none !important;
+}
+
+
+
+.height100{
+  height:100vh;
+}
+/*Table for vertical allignment*/
+.container-table {
+    display: table;
+}
+.vertical-center-row {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+
+.mainarea{
+  background-color: #FFFFFF;
+}
+
+.menu {
+  .menuelem{
+    height:55px;
+  }
+  .elem{
+    line-height: 55px;
+
+  }
+}
+
+
+/*PADDINGS*/
+.nopadding{padding:0px;}
+.paddingTop10{ padding-top:10px;}
+.paddingTop16{ padding-top:16px;}
+.paddingTop20{ padding-top:20px;}
+.paddingTop30{ padding-top:30px;}
+.paddingTop40{ padding-top:40px;}
+.paddingBottom10{ padding-bottom:10px;}
+.paddingBottom16{ padding-bottom:16px;}
+.paddingBottom20{ padding-bottom:20px;}
+.paddingBottom30{ padding-bottom:30px;}
+
+.padding3{padding:3px;}
+.padding10{padding:10px;}
+.padding20{padding:20px;}
+.padding30{padding:30px;}
+
+.paddingLeftRight10{ padding-left:10px;padding-right:10px;}
+.paddingLeftRight30{ padding-left:30px;padding-right:30px;}
+.paddingLeftRight40{ padding-left:40px;padding-right:40px;}
+.paddingLeftRight50{ padding-left:50px;padding-right:50px;}
+
+.paddingTopBottom10{ padding-top:10px;padding-bottom:10px;}
+.paddingTopBottom20{ padding-top:20px;padding-bottom:20px;}
+
+.font17{font-size:1.7em !important;}
+.font15{font-size:1.5em !important;}
+.font13{font-size:1.3em !important;}
+.font12{font-size:1.2em !important;}
+.font11{font-size:1.1em !important;}
+.font09{font-size:0.9em !important;}
+.font08{font-size:0.8em !important;}
+.font07{font-size:0.7em !important;}
+
+/*Margins*/
+.nomargin{margin:0px;}
+.marginTop30{margin-top:30px;}
+.marginTop40{margin-top:40px;}
+.marginTop50{margin-top:50px;}
+
+
+
+/*Background*/
+.bgWhite{ background-color:white;}
+.bgGreen{ background-color:$green;}
+
+/*Font*/
+.colorLightGray{ color:$light-gray; }
+.colorGreen{ color:$green; }
+.colorRed{ color:$red; }
+
+/*HELPERS*/
+
+.noradius {
+  -webkit-border-radius: 0px !important;
+  -moz-border-radius: 0px !important;
+  border-radius: 0px !important;
+}
+
+
+.letterSpacing1{letter-spacing:1px;}
+.letterSpacing2{letter-spacing:2px;}
+.letterSpacing3{letter-spacing:3px;}
+.pointer{ cursor: pointer;}
+.boxshadow{
+  -webkit-box-shadow: 0px 0px 15px 1px rgba(179,179,179,0.64);
+  -moz-box-shadow: 0px 0px 15px 1px rgba(179,179,179,0.64);
+  box-shadow: 0px 0px 15px 1px rgba(179,179,179,0.64);
+}
+.boxshadowBottom{
+-webkit-box-shadow: 0px 3px 2px 0px rgba(179,179,179,0.5);
+-moz-box-shadow: 0px 3px 2px 0px rgba(179,179,179,0.5);
+box-shadow: 0px 3px 2px 0px rgba(179,179,179,0.5);
+}
+
+.boxShadowLight{
+  -webkit-box-shadow: 0px -5px 15px -4px rgba(128,128,128,1);
+-moz-box-shadow: 0px -5px 15px -4px rgba(128,128,128,1);
+box-shadow: 0px -5px 15px -4px rgba(128,128,128,1);
+}
+
+.uppercase{
+  text-transform: uppercase;
+}
+.bold{
+  font-weight: bold;
+}
+.border-lightgray{
+  border:1px solid $light-gray;
+}
+.fullwidth{
+  display:block;
+}
+
+
+/*BUTTONS*/
+.button{
+  color:#ffffff;
+  font-size:1.2em;
+  padding:10px 40px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  border:none !important;
+  -webkit-appearance: none;
+}
+.button-width{
+  font-size:1.2em;
+  width:100%;
+  display: block;
+  padding-top:10px;
+  padding-bottom:10px;
+  font-weight: bold;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-appearance: none;
+}
+.button-small.button{
+  font-size:1em;
+  padding:8px 30px;
+}
+.button-basic.button{
+  font-size:1em;
+  color:#c6c6c6;
+}
+.button-basic:hover{
+  color:darken(#c6c6c6,10%) !important;
+  border:1px solid darken(#c6c6c6,5%) !important;
+}
+.button:hover{
+  color:#ffffff;
+  text-decoration: none;
+}
+.dismiss-button{
+  color:$light-gray;
+  padding-right:20px;
+  font-size:50px;
+  cursor: pointer;
+  z-index:2000 !important;
+}
+.dismiss-button:hover{
+  color:black;
+}
+
+.topDarkLine{
+  width:100%;
+  height:20px;
+}
+
+/*Modal background*/
+.modal-backdrop.in {
+    opacity: .8;
+    filter: alpha(opacity=50);
+}
+
+.steps{
+  padding:20px;
+  background-color:#f5f5f5;
+  .dot {
+    background-color: #c4c4c4;
+    border-radius: 3px;
+    display: inline-block;
+    height: 6px;
+    width: 6px;
+    margin-left:6px;
+}
+.dot.active {
+    background-color: #545454;
+}
+}
+
+.sliderValue{
+  text-align:center;
+  width:110px;
+  height:90px;
+  border:1px solid #c6c6c6;
+  font-size:45px;
+  font-weight: bold;
+  line-height: 90px;
+}
+
+
+label > input{
+  visibility: hidden; /* Makes input not-clickable */
+  position: absolute; /* Remove input from document flow */
+}
+label > input + img{ /* IMAGE STYLES */
+  cursor:pointer;
+
+}
+label > input:checked + img{ /* (RADIO CHECKED) IMAGE STYLES */
+}
+
+
+input[type="text"]{
+  border-style:solid;
+  border:1px solid #c4c4c4;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+
+.form-control{
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+
+   height: 60px;
+   border: 1px solid $light-gray;
+   padding: 8px;
+   text-align:center;
+   font-size:18px;
+   font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.or{
+  line-height: 60px;
+  position:absolute;
+  left:-12px;
+  color:$light-gray;
+}
+
+.inactiveFieldLabel{
+  text-align:center;
+  font-size:0.7em;
+  margin-top:-17px;
+  z-index:2000;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+
+button.pension-remove{
+  background:none;
+  border:none;
+  color:#e9004c !important;
+  font-size:22px;
+  position:absolute;
+  top:14px;
+  left:10px;
+}
+button.pension-remove:hover{
+  background:none;
+  border:none;
+  color: darken(#e9004c,15%) !important;
+
+}
+.dismiss-button{
+  position:absolute;
+  top:15px;
+  right:15px;
+}
+
+.stateBox{
+  display:block;
+  box-shadow: inset 0 0 1px $light-gray, inset 0 0 1px $light-gray, inset 0 0 1px $light-gray;
+  padding:16px 30px 16px 30px;
+  font-weight: bold;
+  display:block;
+  font-size:1.2em;
+  cursor: pointer;
+}
+
+/*List of obtions in Result view*/
+.optionBox{
+  .head{
+    padding-top:18px;
+    padding-bottom:18px;
+  }
+  .option{
+    padding-left:12px;
+    padding-right:12px;
+    background-color:#efedea;
+    table{
+      width:100%;
+      td{
+        height:24px;
+        padding-top:10px;
+        padding-bottom:10px;
+      }
+      .name{
+        font-size:9px;
+        line-height:20px;
+      }
+      .tdborder{
+        border-bottom:1px solid darken(#efedea,10%);
+        }
+      .lumpsum{
+        line-height: 12px;
+      }
+      .taxfree{
+        line-height: 12px;
+        width:40px;
+        height:40px;
+        padding-top:9px;
+      }
+    }
+  }
+
+}
+
+
+.normalForm{
+  height:38px;
+  font-weight: 400;
+  text-transform: capitalize;
+
+}
+.errorMsg{
+  color:$red;
+  font-weight: bold;
+  font-size:1.1em;
+  padding-top:12px;
+  text-align:center;
+}
+
+
+.midboxlink{
+    padding:10px 15px;
+    margin:0px;
+}
+.midboxlink.inactive{
+    padding:10px 15px;
+    border:1px solid lighten($light-gray,15%);;
+    margin:0px;
+    color:darken($light-gray,15%) !important;
+    background-color:lighten($light-gray,15%);
+}
+
+.label-lifeExp{
+  content:'Life Expectancy';
+
+}
+
+/*Hide blue border around datepicker*/
+.uib-daypicker{
+    outline: none;
+}
+/*Hide blue border form checkbox*/
+input[type="checkbox"]:focus{
+        outline:0;
+}
+input[type="text"]:focus{
+        outline: none;
+}
+input[type="number"]:focus{
+         outline: none;
+}
+
+/*Bottom Line*/
+.bottomLine{
+  color:#c6c6c6;
+  a{color:lighten(#c6c6c6,5%) !important;}
+  img{ width:24px; height:24px;}
+  .separator{line-height:24px;padding-left:6px;padding-right:3px; color:lighten(#c6c6c6,5%);}
+  .version{line-height:24px;}
+}
+
+/*Some hacky solition to, it is important*/
+html, body {
+   display: block;
+ }
+
+ .navbar-text{
+   font-weight: normal !important;
+ }
+
+.fixFlexibleIncome{
+  padding-left:20px;
+  height:40px;
+  color:#c6c6c6;
+}
+
+
+
+/*Retirement age changer on chart views*/
+.retAgeBox{
+  background-color: lighten($light-gray,20%);
+  padding: 2px;
+  cursor:pointer;
+}
+.retAgeNum{
+  padding:2px;
+  padding-left:15px;
+  padding-right:15px;
+  background-color: lighten($light-gray,20%);
+}

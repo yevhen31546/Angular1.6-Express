@@ -1,0 +1,125 @@
+
+<section>
+<div class="col-xs-12 paddingLeftRight40">
+
+
+
+  <!--logo-->
+ <div class="row">
+  <div class="col-xs-12 text-center paddingTop20">
+      <img ng-attr-style="height:80px;" ng-src=" {{appData.branding.logo }}">
+      <div class="dismiss-button" ng-click="ModalInstCtrl.cancel()">&times;</div>
+  </div>
+  </div><!--row-->
+  <!--header-->
+  <div class="row">
+  <div class="col-xs-12  paddingTop30">
+    <div class="font07 uppercase fontColorLight">FIND OUT MORE</div>
+    <div class="uppercase bold font17">Cash Out</div>
+  </div>
+  </div><!--row-->
+  <!--init text-->
+  <div class="row">
+  <div class="col-xs-12  paddingTop20">
+    Your pension fund is simply paid to you in one go.
+  </div>
+  </div><!--row-->
+
+  <!--Advantages/disadvantages-->
+  <div class="row paddingTop40 paddingBottom30">
+    <div class="col-xs-12 col-sm-6">
+          <div class="uppercase bold font11 paddingBottom20">Advantages</div>
+          <div>
+            <table style="border:0px;">
+              <tr>
+                <td class="paddingBottom20" style="width:50px;"><img ng-src="images/ok.png"></td>
+                <td class="paddingBottom20 font09">You can use the money for whatever you want</td>
+              </tr>
+            </table>
+          </div>
+
+    </div>
+    <div class="col-xs-12 col-sm-6">
+      <div class="uppercase bold font11 paddingBottom20">Disadvantages</div>
+      <div>
+        <table style="border:0px;">
+          <tr>
+            <td class="paddingBottom20" style="width:50px;"><img ng-src="images/no.png"></td>
+            <td class="paddingBottom20 font09">75% of your fund will be taxed</td>
+          </tr>
+          <tr>
+            <td class="paddingBottom20" style="width:50px;"><img ng-src="images/no.png"></td>
+            <td class="paddingBottom20 font09">You have no future income</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div><!--row-->
+
+
+  <div class="row paddingBottom30">
+    <div class="col-xs-12 paddingTop20">
+      <table style="border:0px; width:100%;">
+        <tr>
+          <td style="width:50%;">
+            <div class="bold font11 paddingTop10">If you have other income the tax charge will be higher. </div>
+            <div class="paddingTop20">HMRC will usually assume a one-off lump sum is the start of a regular monthly income. This means you could pay too much tax initially and you will need to contact HRMC to reclaim the overpaid tax. </div>
+          </td>
+          <td style="width:50%;" class="padding10 paddingLeftRight30 font11 bold fontHederColor bgcolorDark">
+            ESTIMATED TAX CHARGE
+            <br>
+            <span class='fontInverse font15'>{{ calc.taxLumpSum.sumTax | currency : "£" :0  }}</span>
+          </td>
+        </tr>
+        <tr>
+
+        </tr>
+      </table>
+    </div>
+  </div><!--row-->
+
+
+<div class="row"><div class="col-xs-12"><hr></div></div>
+
+
+<div class="row paddingBottom30">
+  <div class="col-xs-12 col-sm-4 text-center">
+    <img src="images/julie_story.png">
+  </div>
+  <div class="col-xs-12 col-sm-8 font09">
+    Julie was a teacher for many years and her teacher's pension covers her outgoings. After she left teaching she worked as a tutor and saved some of her earnings in a personal pension.
+<br><br>
+    She decided to take this pension fund entirely as cash so that she could clear her mortgage. Although she paid more in tax than if she had taken a regular income, she worked out that this was less than the mortgage interest she would save.
+  </div>
+</div><!--row-->
+
+
+
+</div><!--col-->
+
+
+  <!-- <div class="col-xs-12">
+    <div class="row ">
+      <div class="speakToExpert row bgcolorMain marginTop40 padding20 fontHederColor boxshadow">
+        <div class="col-xs-6 col-sm-12">
+          <table style="width:100%;">
+            <tr>
+              <td style="width:25%;">
+                <div class="head fontHederColor uppercase font15">Still Unsure?</div>
+                <div class="font08">Speak to an expert to help you decide</div>
+              </td>
+              <td style="width:25%;" class="paddingLeftRight30">
+                  <div ng-controller="ModalController as ModalCtrl" ng-init="init(appData.branding)">
+                      <button class="button font09 bgcolorLight"ng-click="ModalCtrl.open('speakToExpert', 'lg')">Speak to Expert</button>
+                  </div>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+
+
+</section><!--main cover-->

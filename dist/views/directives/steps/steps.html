@@ -1,0 +1,26 @@
+<div class="steps">
+  <div class="row">
+    <div class="col-xs-3 text-left paddingTop20">
+      <a href="{{ step.prevUrl }}" class="button button-basic backBtn"><span class="glyphicon font08 glyphicon-chevron-left"></span>Back</a>
+    </div>
+    <div class="col-xs-6 text-center paddingTop20">
+        <span ng-show="valid.valid" ng-repeat="(key, value) in step.mainStep">
+              <span ng-if="value == step.currentNumber" class="dot active"></span>
+              <span ng-if="value != step.currentNumber" class="dot"></span>
+         </span>
+
+         <span ng-hide="valid.valid" class="errorMsg">{{ valid.error }}</span>
+
+    </div>
+
+    <div class="col-xs-3 text-right paddingTop20">
+      <!--normal link-->
+      <a ng-click="validate()" href="{{ step.nextUrl }}" ng-attr-style="background-color:{{ appData.branding.mainColorLight }}" class="button button-small nextBtn">Next<span class="glyphicon font08 glyphicon-chevron-right"></span></a>
+
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12"></div>
+  </div>
+</div>

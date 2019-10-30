@@ -1,0 +1,171 @@
+<style>
+  .tooltip {
+      position: relative;
+      display: inline-block;
+  }
+  
+  .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 200px;
+      background-color: black;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 5px 5px 5px 5px;
+      position: absolute;
+      z-index: 1;
+      bottom: 150%;
+      left: 50%;
+      margin-left: -105px;
+  }
+
+  .tooltip .tooltiptext.small {
+      width: 50px;
+      bottom: 150%;
+      left: 50%;
+      margin-left: -25px;
+  }
+  
+  .tooltip .tooltiptext::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: black transparent transparent transparent;
+  }
+  
+  .tooltip:hover .tooltiptext {
+      visibility: visible;
+  }
+</style>
+<section ng-controller="ChartCashoutController">
+  <div class="section padding-bottom-40  paddingTop20">
+  <div class="container">
+    <div class="row boxshadow">
+      <div class="col-xs-12 mainarea ">
+        <main-menu></main-menu>
+            <!--OPTION TABLE Content-->
+
+            <!--head line-->
+            <div class="row paddingTop30 paddingBottom30">
+                <div class="col-xs-12 col-sm-6">
+                    <div class="row">
+                      <div class="col-xs-12 col-sm-6">
+                        <div class="mainColorLight font07 bold uppercase">Total Pension Pot At Retirement</div>
+                        <div class="mainColorDark font15 bold">{{ calc.pensionFundAtRetirement.fullFuturePension | currency : "£" :0  }}</div>
+                      </div>
+                      <div class="col-xs-12 col-sm-6">
+                        <div class="mainColorLight font07 bold uppercase">Target Retirement age</div>
+                        <div class="mainColorDark font15 bold">
+                          <span ng-click="updateRetAge('minus')" class="retAgeBox mainColorLight"><span class="glyphicon glyphicon-triangle-left"></span></span><span class="retAgeNum">{{ about_ret  }}</span><span class="retAgeBox mainColorLight"><span ng-click="updateRetAge('plus')" class="glyphicon glyphicon-triangle-right"></span></span>
+                         </div>
+                      </div>
+                    </div><!--row-->
+                </div>
+                <div class="col-xs-12 col-sm-6 uppercase text-right">
+                  <div class="row">
+
+
+                    <div class="col-xs-12 col-sm-4 font07 text-left">
+                      Maintain income<br>
+                      in real terms:
+                      <div class="tooltip"><i class="fas fa-info-circle fa-lg"></i>
+                        <span class="tooltiptext small">
+                          TBC
+                        </span>
+                      </div>
+                      <input ng-model="realterms" ng-true-value="'yes'" ng-false-value="'no'"  type="checkbox">
+                    </div>
+
+                    <div class="col-xs-12 col-sm-3 font07 text-left">
+                      <a class="colorLightGray" target="_blank" href="https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/lifeexpectancies/articles/howlongwillmypensionneedtolast/2015-03-27">
+                         <span class="glyphicon glyphicon-info-sign"></span> Life<br>Expectancy
+                      </a>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-5 text-right">
+                      <a class="midboxlink inactive font08"   href='/options/table'>Cards</a><span class="midboxlink bgcolorMain borderMain font08" ng-attr-style="color:#ffffff;" >Charts</span>
+                    </div>
+                  </div><!--row-->
+
+                </div>
+            </div><!--row-->
+
+
+          <div class="row">
+            <div class="col-xs-10 col-sm-11 nopadding">
+                <div ng-init="whichChart='cashout'">
+                  <bar-chart></bar-chart>
+                </div>
+
+            </div>
+            <div class="col-xs-2 col-sm-1 nopadding" style="height:470px;">
+              <div style="height:400px;margin-top:20px;margin-bottom:30px;">
+                <rzslider class="incomeTarget-slider"  rz-slider-model="incomeSlider.value" rz-slider-options="incomeSlider.options"></rzslider>
+              </div>
+            </div>
+          </div>
+
+
+          <!--fix flexibel income-->
+          <div class="fixFlexibleIncome font07">
+            <div class="text-left col-xs-6"></div>
+            <div class="text-right col-xs-6"></div>
+          </div>
+
+          <!--End: Chart-->
+
+        </div><!--col-->
+    </div><!--row-->
+    <div class="row">
+        <div class="col-xs-4 text-center paddingTop20 paddingBottom20">
+            <a class="text-center paddingTop20 paddingBottom20 bold font11 fontColor" href="/options/flexible">Flexible Drawdown</a>
+        </div>
+        <div class="col-xs-4 text-center paddingTop20 paddingBottom20 ">
+            <a class="text-center paddingTop20 paddingBottom20 bold font11 fontColor" href="/options/annuity">Annuity</a>
+        </div>
+        <div class="col-xs-4 text-center paddingTop20 paddingBottom20 bgWhite boxshadowBottom ">
+             <a class="text-center paddingTop20 paddingBottom20 bold font11 fontColor" href="/options/cashout">Cash Out</a>
+        </div>
+    </div><!--row-->
+
+
+
+    <div class="paddingTop40">
+      <!--Review Entry and Advanced Settings-->
+      <div class="row">
+        <!--special link PopUp for last step-->
+        <div class="col-xs-2 text-center paddingTop10 paddingBottom10 ">
+        <div class="nopadding" ng-controller="ModalController as ModalCtrl" ng-init="init(appData.branding)">
+            <a class="pointer colorLightGray" ng-click="ModalCtrl.open('review', 'lg')"><span class="glyphicon glyphicon-eye-open"></span> Review</a>
+        </div>
+      </div>
+        <div class="col-xs-3 text-center paddingTop10 paddingBottom10">
+                <a href='/options/settings?source=cashout' class="pointer colorLightGray"><span class="glyphicon glyphicon-cog"></span> Assumptions</a>
+        </div>
+        <div class="col-xs-2 text-center paddingTop10 paddingBottom10 text-center">
+              <a href="/print" class="pointer colorLightGray"><span class="glyphicon glyphicon-print"></span> Print</a>
+        </div>
+        <div class="col-xs-3 text-center paddingTop10 paddingBottom10">
+                <a target="_blank" href='{{ clonelink }}' class="pointer colorLightGray"><span class="glyphicon glyphicon-duplicate"></span> Duplicate</a>
+        </div>
+        <div class="col-xs-2 text-center paddingTop10 paddingBottom10">
+              <a href="#" class="pointer colorLightGray" ng-click="reset()"><span class="glyphicon glyphicon-repeat"></span> Reset</a>
+        </div>
+      </div><!--row-->
+
+    </div>
+
+
+    <!-- <speak-to-expert></speakToExpert> -->
+
+  </div>
+</div><!--scetion class-->
+
+
+
+
+</section>

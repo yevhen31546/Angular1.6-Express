@@ -1,0 +1,158 @@
+<section>
+<div class="col-xs-12 paddingLeftRight50 submit-form-bottom">
+
+
+
+  <!--logo-->
+ <div class="row paddingBottom30">
+  <div class="col-xs-12 text-center paddingTop40 paddingBottom20">
+      <!--<img ng-attr-style="height:80px;" ng-src=" {{appData.branding.logo }}">-->
+      Contact<br>Lemonade Reward
+      <div class="dismiss-button" ng-click="ModalInstCtrl.cancel()">&times;</div>
+  </div>
+  </div><!--row-->
+  <!--header-->
+
+
+<div ng-hide="showForm">
+
+      <div ng-show="sending" class="text-center paddingLeftRight30 paddingTopBottom20">
+        <h1 class=" colorGreen">Thank you</h1><h4>We will contact you shortly.</h4>
+      </div>
+        <div ng-hide="sending">
+          <h1 class="text-center colorRed paddingLeftRight30 paddingTopBottom20">Sorry something went wront, please tyr again later.</h1>
+        </div>
+</div>
+
+
+
+<div ng-show="showForm" class="paddingTopBottom20">
+          <form name="userForm"
+                ng-submit="submitForm(userForm.$valid)"
+                ng-model="userForm" novalidate>
+
+<div class="row">
+            <div class="form-group col-sm-6">
+              <label for="fname"> First Name</label>
+              <input class="form-control text-left"
+                     name="fname"
+                     id="fname"
+                     ng-model="user.fname"
+                     ng-model-options="{ updateOn: 'blur' }"
+                     required>
+
+              <span class="glyphicon glyphicon-ok"
+                    ng-show="userForm.fname.$valid"></span>
+
+              <span class="glyphicon glyphicon-remove"
+                    ng-show="userForm.fname.$error.required && !userForm.fname.$pristine"></span>
+
+              <p ng-show="userForm.fname.$error.required && !userForm.fname.$pristine"
+                 class="help-block">Name is required.</p>
+            </div>
+
+            <div class="form-group col-sm-6">
+              <label for="lname"> Last Name</label>
+              <input class="form-control"
+                     name="lname"
+                     id="lname"
+                     ng-model="user.lname"
+                     ng-model-options="{ updateOn: 'blur' }"
+                     required>
+
+              <span class="glyphicon glyphicon-ok"
+                    ng-show="userForm.lname.$valid"></span>
+
+              <span class="glyphicon glyphicon-remove"
+                    ng-show="userForm.lname.$error.required && !userForm.lname.$pristine"></span>
+
+              <p ng-show="userForm.lname.$invalid && !userForm.lname.$pristine"
+                 class="help-block">Last name is required.</p>
+            </div>
+</div><!--row-->
+<div class="row">
+            <!--email-->
+            <div class="form-group col-sm-6">
+              <label for="lname"> Email</label>
+              <input type="email"
+                     class="form-control"
+                     name="email"
+                     id="email"
+                     ng-model="user.email"
+                     ng-model-options="{ updateOn: 'blur' }"
+                     required>
+              <span  class="glyphicon glyphicon-ok"
+                    ng-show="userForm.email.$valid"></span>
+
+              <span class="glyphicon glyphicon-remove"
+                    ng-show="userForm.email.$invalid && !userForm.email.$pristine"></span>
+
+              <p ng-show="userForm.email.$invalid && !userForm.email.$pristine"
+                 class="help-block">Enter a valid email.</p>
+            </div>
+
+            <!--phone-->
+            <div class="form-group col-sm-6">
+              <label for="lname"> Phone</label>
+              <input class="form-control"
+                     name="phone"
+                     id="phone"
+                     ng-model="user.phone"
+                     ng-model-options="{ updateOn: 'blur' }"
+                     ng-required="!emailphone">
+
+              <span class="glyphicon glyphicon-ok"
+                    ng-show="userForm.phone.$dirty"></span>
+            </div>
+</div><!--row-->
+<div class="row">
+            <div class="form-group col-xs-12">
+              <label for="company">How can we help?</label>
+              <textarea class="form-control" id="message" name="message" ng-model="user.message" ng-model-options="{ updateOn: 'blur' }" rows="3"></textarea>
+            </div>
+</div><!--row-->
+
+<div class="row">
+            <div class="col-xs-12 col-sm-10 col-sm-offset-1 font08 colorLightGray">
+              <div class="row">
+                <div class="col-xs-1"><input type='checkbox' name="privacyChecked" ng-model="pensionDataChecked"  ng-true-value="'true'" ng-false-value="'false'"></div>
+                  <div class="col-xs-11">I want to send my pension-related information as well along with my contact details</a></div>
+              </div><!--row-->
+              <div class="row">
+                <div class="col-xs-12"><hr></div>
+              </div><!--row-->
+              <div class="row">
+                <div class="col-xs-1"><input required type="checkbox" name="privacyChecked" ng-model="privacyChecked"  ng-true-value="'true'" ng-false-value="'false'"></div>
+                <div class="col-xs-11">I have read and accepted the <a target="_blank" href="http://lemonadellp.com/privacy_policy.pdf">Privacy Policy</a></div>
+              </div><!--row-->
+            </div>
+            <div class="col-xs-12 paddingTop30 paddingBottom30">
+
+              <button class="button-width bgcolorMain fontHederColor"
+                      analytics-on="click"
+                      analytics-label="ROP-Lemonade-SpeakToExpert"
+                      ng-class="{ disabled : userForm.$invalid }"
+                      ng-disabled="userForm.$invalid && !privacyChecked">CONTACT LEMONADE</button>
+
+                    <p ng-hide="privacyChecked" class="help-block text-center">Before proceed please accept our Privacy Plicy</p>
+            </div>
+
+
+
+</div><!--row-->
+
+          </form>
+</div><!--showForm-->
+
+
+  </div><!--row-->
+
+
+
+
+
+
+
+
+
+</section><!--main cover-->

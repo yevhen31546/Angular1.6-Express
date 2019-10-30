@@ -1,0 +1,51 @@
+<section>
+<div class="col-xs-12 paddingLeftRight50">
+
+
+
+  <!--logo-->
+ <div class="row">
+  <div class="col-xs-12 text-center paddingTop40">
+      <img ng-attr-style="height:80px;" ng-src=" {{appData.branding.logo }}">
+      <div class="dismiss-button" ng-click="ModalInstCtrl.cancel()">&times;</div>
+  </div>
+  </div><!--row-->
+  <!--header-->
+  <div class="row">
+  <div class="col-xs-12  paddingTop40">
+    <div class="font07 uppercase fontColorLight">Option selection</div>
+    <div class="bold font17">Cash out</div>
+  </div>
+  </div><!--row-->
+
+
+  <div class="row">
+  <div class="col-xs-12 font09  paddingTop30">
+    This option does not require advice, but seeking advice is recommended to ensure you are aware of the pitfalls.<br>
+    If you wish to select this option without taking advice, you will need to contact your pension administrator directly.
+    <!--Click below to request the cash out option from your pension scheme administrator.-->
+  </div>
+  </div><!--row-->
+
+  <!--warning-->
+  <div class="row paddingBottom30">
+  <div class="col-xs-12 font09  paddingTop30">
+    <span class="label label-danger">Warning!</span> This option will not provide an income in retirement. You may also incur a sizeable tax charge. We would encourage you to speak to an adviser before selecting this option
+  </div>
+  </div><!--row-->
+
+
+
+  <!--btn-->
+  <div class="row paddingTop40 paddingBottom30">
+      <div class="col-xs-offset-3 col-xs-6 text-center">
+      <div ng-controller="ModalController as ModalCtrl" ng-init="init(appData.branding)">
+        <button class="button btn-block font09 bgcolorMain fontHederColor uppercase text-center" ng-click="ModalCtrl.open('contact', 'md')">SPEAK TO AN EXPERT</button>
+      </div>
+    </div>
+  </div><!--row-->
+
+
+
+
+</section><!--main cover-->

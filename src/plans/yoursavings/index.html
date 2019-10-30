@@ -1,0 +1,101 @@
+<!-- <section ng-controller="AgeController" >
+ <personal-form></personal-form>
+</section> -->
+<section ng-controller="YoursavingsController" >
+  <div class="section padding-bottom-40  paddingTop20">
+  <div class="container">
+    <div class="row boxshadow">
+      <div class="col-xs-12 mainarea ">
+        <main-menu></main-menu>
+            <!--AGE Content-->
+              <div class="row paddingTop20">
+                  <div class="col-xs-12" ng-attr-style="color:{{ appData.branding.mainColor }}">
+                    <h5 class="bold text-center paddingTop30 uppercase mainColor">Your contributions</h5>
+                  </div>
+              </div><!--row-->
+              <div class="row paddingTop20">
+                  <h4 class="text-center paddingTop20 tooltip-container">
+                      Your current pension contribution
+                    <div class="tooltip"><i class="fas fa-info-circle fa-lg"></i>
+                      <span class="tooltiptext">
+                        To check the total percentage that you and <br/> the company are currently contributing log on to the MyChoice <a target="_blank" href="http://atretirement.siemens.lemonadereward.com/www.siemens.co.uk/mychoice">website</a>.
+                    </span>
+                  </h4>
+                </div><!--row-->
+                <div class="row paddingTop20 paddingBottom10">
+                  <div class="col-xs-4  col-xs-offset-2">
+                      <input ng-class="{'inactiveField':yourSavingValue>=0}" type="number" ng-model="yourSavingValue" name="" placeholder="AMOUNT PER MONTH" class="form-control" ng-change="yourSavingsAmount()">
+                      <div class="col-xs-12 inactiveFieldLabel" ng-show="yourSavingValue>0">AMOUNT PER MONTH</div>
+
+                  </div>
+
+                  <div class="col-xs-4">
+                    <span class="or">OR</span>
+                    <input ng-class="{'inactiveField':yourSavingPer>=0}" type="text"  ng-pattern="/^[0-9]{1,2}(\.[0-9]{0,2})?$/" required ng-model="yourSavingPer" name="" placeholder="% PER MONTH" ng-change="yourSavingsPer()" class="form-control">
+                      <div class="col-xs-12 inactiveFieldLabel" ng-show="yourSavingPer>0">% PER MONTH</div>
+                  </div>
+                </div><!--row-->
+
+                <div class="row paddingTop30 paddingBottom30">
+                  <div class="col-xs-10 col-md-offset-2">
+                    <div class="mainColorLight font08 bold">Your monthly contribution</div>
+                    <div class="bold font17">{{ montlySaving | currency : "£" :0  }}</div>
+                  </div>
+                </div><!--row-->
+
+          <!--End: Age Content-->
+      </div>
+      <steps></steps>
+    </div><!--row-->
+  </div>
+</div><!--scetion class-->
+</section>
+
+
+
+  </div>
+</div>
+</section>
+
+<style>
+.tooltip-container .tooltip {
+  position: relative;
+  display: inline-block;
+}
+.tooltip-container .tooltip i {
+  font-size: 16px;
+  vertical-align: super;
+}
+.tooltip-container .tooltip .tooltiptext {
+  visibility: hidden;
+  width: 300px;
+  background-color: black;
+  color: #fff;
+  text-align: left;
+  border-radius: 6px;
+  padding: 5px 5px 5px 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -150px;
+  font-size: 12px;
+  word-break: break-all;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+</style>
+  

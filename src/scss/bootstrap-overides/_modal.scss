@@ -1,0 +1,364 @@
+.dismiss-button {
+  height: 60px;
+  width: 60px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 40px;
+  text-align: center;
+  font-family: "Times New Roman", Times, serif;
+  color: $gray-base;
+
+  &:hover {
+    cursor: pointer;
+    color: $brand-primary;
+  }
+}
+
+.modal-content {
+  box-shadow: none;
+  border: 1px solid $white;
+
+  .form-group {
+    min-height: 45px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+
+  .form-control {
+    height: 40px;
+  }
+}
+
+@keyframes font-color {
+  0% {
+    color: $orange;
+  }
+  50% {
+    color: $brand-primary;
+  }
+  100% {
+    color: $orange;
+  }
+}
+
+.loading {
+  h2 {
+    margin-top: 0;
+    @include animation(4s font-color linear infinite);
+  }
+}
+
+.loading-overlay {
+  position: fixed;
+  z-index: 3000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  @include transforms(translateY(-101%));
+  @include transition(all 250ms ease);
+
+  .lemonade-modal {
+    background: white;
+    max-width: 400px;
+    width: 90%;
+    height: 350px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+
+    @include transition(all 600ms ease);
+    @include transforms(translateY(-20%));
+  }
+
+  .loading {
+    border-radius: 10px;
+    padding: 30px;
+  }
+
+  &.open {
+    opacity: 1;
+    @include transforms(translateY(0));
+
+    .lemonade-modal {
+      @include transforms(translateY(0));
+    }
+  }
+}
+
+//centering
+.modal {
+  text-align: center;
+  padding: 0 !important;
+}
+
+.modal:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -4px;
+}
+
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.lemonade-modal {
+  padding: 50px;
+  @media (max-width: 767px) {
+    & {
+      padding: 40px 15px 15px 20px;
+    }
+  }
+
+  .steps {
+    h4 {
+      font-size: 20px;
+    }
+  }
+
+  .lemonade-button {
+    margin: 20px auto 0 auto;
+  }
+
+  .loader {
+    margin: 50px auto;
+    display: block;
+  }
+}
+
+.PDF-modal {
+  padding-top: 50px;
+
+  .PDF-ledge {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 70px;
+    border-top: 1px solid $gray-lighter;
+  }
+
+  .lemonade-button {
+    margin-top: 12px;
+  }
+}
+
+//modal contact form with thank you message
+.modal-explain {
+  position: relative;
+  overflow: hidden;
+  background-color: $white;
+  border-radius: 10px;
+
+  p {
+    font-size: 20px;
+  }
+
+  h1, h2 {
+    margin-top: 0;
+  }
+}
+
+.modal-overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 500;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+  background-color: white;
+  @include transition(all 400ms ease-in);
+  @include transforms(translate(0, 100%));
+
+  &.slideIn {
+    @include transforms(translate(0, 0));
+  }
+
+  .row {
+    width: 100%;
+    position: absolute;
+    bottom: 30px;
+    margin: 0;
+  }
+}
+
+.modal-overlay-intro {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+  background-color: white;
+
+  @include transition(all 200ms ease-in);
+
+  &.slideOut {
+    @include transforms(translate(0, 100%));
+  }
+
+  .row {
+    width: 100%;
+    position: absolute;
+    bottom: 30px;
+    margin: 0;
+  }
+}
+
+.modal-overlay {
+  .message-content {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    height: 80%;
+    margin: auto;
+
+    img {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: auto;
+      bottom: 50px;
+      margin: 0 auto 0 auto;
+
+      @media (max-width: 767px) {
+        max-width: 60px;
+        bottom: 100px;
+      }
+    }
+
+    img.logo-img-form {
+      position: static;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .message {
+      &:nth-child(1) {
+        margin-bottom: 20px;
+        @include transition-delay(0ms);
+      }
+
+      &:nth-child(2) {
+        @include transition-delay(300ms);
+      }
+    }
+  }
+
+  .message {
+    opacity: 0;
+    @include transforms(translate(0, 100%));
+    @include transition(all 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55));
+
+    &:nth-child(1) {
+      margin-bottom: 30px;
+      @include transition-delay(600ms);
+    }
+
+    &.slideUp {
+      opacity: 1;
+      @include transforms(translate(0, 0));
+    }
+  }
+}
+
+.modal-overlay {
+  @media (max-width: 991px) {
+    h1 {
+      margin-top: 0px;
+    }
+    .message {
+      &:nth-child(1) {
+        margin-bottom: 70px;
+      }
+    }
+  }
+}
+
+@keyframes wobble {
+  from {
+    transform: none;
+  }
+
+  15% {
+    transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -5deg);
+  }
+
+  30% {
+    transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 3deg);
+  }
+
+  45% {
+    transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -3deg);
+  }
+
+  60% {
+    transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 2deg);
+  }
+
+  75% {
+    transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -1deg);
+  }
+
+  to {
+    transform: none;
+  }
+}
+
+.wobble {
+  animation-name: wobble;
+}
+
+@keyframes jello {
+  from, 11.1%, to {
+    transform: none;
+  }
+
+  22.2% {
+    transform: skewX(-12.5deg) skewY(-12.5deg);
+  }
+
+  33.3% {
+    transform: skewX(6.25deg) skewY(6.25deg);
+  }
+
+  44.4% {
+    transform: skewX(-3.125deg) skewY(-3.125deg);
+  }
+
+  55.5% {
+    transform: skewX(1.5625deg) skewY(1.5625deg);
+  }
+
+  66.6% {
+    transform: skewX(-0.78125deg) skewY(-0.78125deg);
+  }
+
+  77.7% {
+    transform: skewX(0.390625deg) skewY(0.390625deg);
+  }
+
+  88.8% {
+    transform: skewX(-0.1953125deg) skewY(-0.1953125deg);
+  }
+}
+
+.loader {
+  transform-origin: center;
+  @include animation(1s jello infinite);
+}

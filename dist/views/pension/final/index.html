@@ -1,0 +1,118 @@
+<!-- <section ng-controller="AgeController" >
+ <personal-form></personal-form>
+</section> -->
+<section ng-controller="FinalController" >
+  <div class="section padding-bottom-40  paddingTop20">
+  <div class="container">
+    <div class="row boxshadow">
+      <div class="col-xs-12 mainarea ">
+        <main-menu></main-menu>
+            <!--AGE Content-->
+              <div class="row paddingTop20">
+                  <div class="col-xs-12" ng-attr-style="color:{{ appData.branding.mainColorDark }}">
+                    <h5 class="bold text-center paddingTop30 uppercase mainColor">YOUR PENSIONS</h5>
+                  </div>
+                  <div class="col-xs-12 col-sm-8 col-sm-offset-2" ng-attr-style="color:{{ appData.branding.mainColorDark }}">
+                    <div class="text-center paddingTop10 paddingBottom20 font11">
+                            In order to show your expected income in retirement, we need to know the value of your current pensions
+                    </div>
+                  </div>
+              </div><!--div-->
+              <div class="row paddingTop20 paddingBottom30">
+                    <h4 class="text-center paddingTop20 tooltip-container">
+                      Do you have a Final Salary pension?
+                      <div class="tooltip"><i class="fas fa-info-circle fa-lg"></i>
+                        <span class="tooltiptext">
+                          You get a final Salary pension or defined benefit pension from a workplace <br/> scheme that promises you a certain amount of pension at retirement.
+                          <br>
+                          The amount you’re paid at retirement is based on how many years you’ve </br> worked for your employer and the salary you’ve earned.
+                          <br><br>
+                          For the purposes of this tool you will need to enter your estimated annual </br> pension at retirement.
+                      </span>
+                    </h4>
+                </div><!--row-->
+
+                    <fieldset  data-ng-repeat="choice in choices track by $index">
+                      <div class="row paddingTop10 paddingBottom10">
+                        <div class="col-xs-3 col-sm-3 col-sm-offset-1">
+                            <input ng-class="{'inactiveField':choice.name.length>0}" type="text" ng-model="choice.name" name="" placeholder="Company Name" class="form-control">
+                            <div class="col-xs-12 inactiveFieldLabel" ng-show="choice.name.length>0">Company Name</div>
+                        </div>
+                        <div class="col-xs-3 col-sm-3">
+                          <input ng-class="{'inactiveField':choice.value>0}" type="number"  required ng-model="choice.value" name="" placeholder="Annual Income" ng-blur="finalSum()" class="form-control">
+                            <div class="col-xs-12 inactiveFieldLabel" ng-show="choice.value>0">Annual Income</div>
+                        </div>
+                        <div class="col-xs-3 col-sm-3">
+                          <input ng-class="{'inactiveField':choice.from>0}" type="number" min="0" max="99" ng-pattern="/^[1-9][0-9]?$|^100$/" required ng-model="choice.from" name="" placeholder="Payable From Age" ng-blur="finalSum()" class="form-control">
+                            <div class="col-xs-12 inactiveFieldLabel" ng-show="choice.from>0">Payable From (age)</div>
+                        </div>
+                        <div class="col-xs-3 col-sm-2"><button class="pension-remove" ng-show="$last" ng-click="removeChoice()">&#215</button></div>
+                      </div><!--row-->
+                    </fieldset>
+
+
+                    <div class="row paddingTop30 paddingBottom30">
+                      <div class="col-xs-4 col-md-3 col-md-offset-2">
+                        <div class="mainColorLight font08 bold">TOTAL FINAL SALARY PENSION</div>
+                        <div class="bold font17">{{ finalsalary_sum | currency : "£" :0  }}</div>
+                      </div>
+                      <div class="col-xs-4 col-md-4">
+                         <div class="row">
+                            <div class="col-xs-12 text-left"><button ng-attr-style="background-color:{{ appData.branding.mainColorLight }}" class="button button-small" ng-click="addNewChoice()">Add Final Salary Pension</button></div>
+                         </div><!--row-->
+                      </div>
+
+                    </div><!--row-->
+
+
+
+
+          <!--End: Age Content-->
+      </div>
+      <steps></steps>
+    </div><!--row-->
+  </div>
+</div><!--scetion class-->
+</section>
+<style>
+  .tooltip-container .tooltip {
+    position: relative;
+    display: inline-block;
+  }
+  .tooltip-container .tooltip i {
+    font-size: 16px;
+    vertical-align: super;
+  }
+  .tooltip-container .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 500px;
+    background-color: black;
+    color: #fff;
+    text-align: left;
+    border-radius: 6px;
+    padding: 5px 5px 5px 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -250px;
+    font-size: 12px;
+    word-break: break-all;
+  }
+  
+  .tooltip .tooltiptext::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: black transparent transparent transparent;
+  }
+  
+  .tooltip:hover .tooltiptext {
+      visibility: visible;
+  }
+  </style>
+    

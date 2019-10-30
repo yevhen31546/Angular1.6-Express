@@ -1,0 +1,130 @@
+
+<section ng-controller="CloneController">
+
+
+
+  <div class="section padding-bottom-40  paddingTop10">
+  <div class="container">
+    <h1 class="text-center colorLightGray">WELCOME BACK</h1>
+    <div class="text-left colorLightGray font13"><span class="glyphicon glyphicon-user"></span> Review your details</div>
+    <div class="row boxshadow">
+      <div id="fullpage" class="col-xs-12 mainarea clone">
+
+
+<div class="row">
+        <!--DOB-->
+        <div class="col-xs-4 paddingTopBottom20">
+           <div class="font07 uppercase fontColorLight"><span class="padding3 bgcolorLight fontHederColor">1.</span> Date of Birth</div>
+            <dob></dob>
+            <div class="coloneError" ng-show='showError && !validValue.age'><span class="glyphicon glyphicon-exclamation-sign"><span class='mainfont'>{{ validMsg.age }}</span></div>
+        </div>
+        <!--Retirement-->
+        <div class="col-xs-4 paddingTopBottom20">
+           <div class="font07 uppercase fontColorLight"><span class="padding3 bgcolorLight fontHederColor">2.</span> Expected Retirement Age</div>
+            <div><input type="number" ng-model="retAge"></div>
+            <div class="coloneError" ng-show='showError && !validValue.ret'><span class="glyphicon glyphicon-exclamation-sign"><span class='mainfont'>{{ validMsg.ret }}</span></div>
+        </div>
+        <!--Gender-->
+        <div class="col-xs-4 paddingTopBottom20">
+           <div class="font07 uppercase fontColorLight"><span class="padding3 bgcolorLight fontHederColor">3.</span> Gender</div>
+            <div>
+              <select class="" name="" ng-model='gen'>
+                <option value="female">Female</option>
+                 <option value="male">Male</option>
+              </select>
+            </div>
+              <div class="coloneError" ng-show='showError && !validValue.gender'><span class="glyphicon glyphicon-exclamation-sign"><span class='mainfont'>{{ validMsg.gender }}</span></div>
+        </div>
+</div><!--row-->
+
+<div class="text-left colorLightGray"><hr></div>
+
+<div class="row">
+        <!--Pension POT-->
+        <div class="col-xs-4 paddingTopBottom20">
+           <div class="font07 uppercase fontColorLight"><span class="padding3 bgcolorLight fontHederColor">4.</span> Current Pension Pot</div>
+            <div><span class='moneysign'>£</span><input class='money' type="number" ng-model="pensionPotValue"></div>
+            <div class="coloneError" ng-show='showError && !validValue.pot'><span class="glyphicon glyphicon-exclamation-sign"><span class='mainfont'>{{ validMsg.pot }}</span></div>
+        </div>
+        <!--Final Salary-->
+        <div class="col-xs-4 paddingTopBottom20">
+           <div class="font07 uppercase fontColorLight "><span class="padding3 bgcolorLight fontHederColor">5.</span> Final Salary Pension</div>
+            <div class="final">
+                <!---final-->
+                <fieldset  data-ng-repeat="choice in choices track by $index">
+                  <div class="row paddingTop10 paddingBottom10">
+                    <div class="col-xs-3 col-sm-3">
+                        <input  type="text" ng-model="choice.name" name="" placeholder="Company">
+                        <div class="font07 colorLightGray"  ng-show="choice.name.length>0">Company</div>
+                    </div>
+                    <div class="col-xs-3 col-sm-3">
+                        <input type="number" required ng-model="choice.value" name="" placeholder="Annually" ng-blur="finalSum()" >
+                        <div class="font07 colorLightGray"  ng-show="choice.value>0">Annual Income</div>
+                    </div>
+                    <div class="col-xs-3 col-sm-3">
+                      <input  type="number" min="0" max="99" ng-pattern="/^[1-9][0-9]?$|^100$/" required ng-model="choice.from" name="" placeholder="Age" ng-blur="finalSum()">
+                        <div class="font07 colorLightGray" ng-show="choice.from>0">Payable From</div>
+                    </div>
+                    <div class="col-xs-3 col-sm-3">
+                      <button class='final-remove' ng-show="$last" ng-click="removeChoice()">&#215</button>
+                    </div>
+                  </div><!--row-->
+                </fieldset>
+                <div class="row">
+                   <div class="col-xs-12 text-left"><button  class="button-small" ng-click="addNewChoice()">Add</button></div>
+                </div><!--row-->
+            </div>
+                <div class="coloneError" ng-show='showError && !validValue.final'><span class="glyphicon glyphicon-exclamation-sign"><span class='mainfont'>{{ validMsg.final }}</span></div>
+        </div>
+        <!--Pension POT-->
+        <div class="col-xs-4 paddingTopBottom20">
+           <div class="font07 uppercase fontColorLight"><span class="padding3 bgcolorLight fontHederColor">6.</span> State Pension</div>
+            <div class="row">
+              <div class="col-xs-4 col-sm-3 col-md-3">
+                <div class="font07 uppercase fontColorLight"></div>
+                <select ng-model="stateScope" ng-options="i.value as (i.label) for i in inputDevice"></select>
+              </div>
+
+              <div class="col-xs-8 col-sm-5 col-md-5">
+                <span class='moneysign' style="top:9px;">£</span><input class='money' type="number" ng-model="userStatePension">
+              </div>
+            </div>
+            <div class="coloneError" ng-show='showError && !validValue.state'><span class="glyphicon glyphicon-exclamation-sign"><span class='mainfont'>{{ validMsg.state }}</span></div>
+        </div>
+</div><!--row-->
+
+
+<div class="text-left colorLightGray"><hr></div>
+
+<div class="row">
+  <!--Salary-->
+  <div class="col-xs-4 paddingTopBottom20">
+     <div class="font07 uppercase fontColorLight"><span class="padding3 bgcolorLight fontHederColor">7.</span> Current annual salary</div>
+      <div><span class='moneysign'>£</span><input class='money' type="number" ng-model="currentSalary"></div>
+        <div class="coloneError" ng-show='showError && !validValue.salary'><span class="glyphicon glyphicon-exclamation-sign"><span class='mainfont'>{{ validMsg.salary }}</span></div>
+  </div>
+  <!--Salary-->
+  <div class="col-xs-4 paddingTopBottom20">
+     <div class="font07 uppercase fontColorLight"><span class="padding3 bgcolorLight fontHederColor">8.</span> Your pension contribution</div>
+      <div><span class='moneysign'>£</span><input class='money' type="number" ng-model="yourcontrib"></div>
+      <div class="coloneError" ng-show='showError && !validValue.yourcont'><span class="glyphicon glyphicon-exclamation-sign"><span class='mainfont'>{{ validMsg.yourcont }}</span></div>
+  </div>
+  <!--Salary-->
+  <div class="col-xs-4 paddingTopBottom20">
+     <div class="font07 uppercase fontColorLight"><span class="padding3 bgcolorLight fontHederColor">9.</span> Your employer’s contribution</div>
+      <div><span class='moneysign'>£</span><input class='money' type="number" ng-model="empcontrib"></div>
+      <div class="coloneError" ng-show='showError && !validValue.empcont'><span class="glyphicon glyphicon-exclamation-sign"><span class='mainfont'>{{ validMsg.empcont }}</span></div>
+  </div>
+</div><!--row-->
+
+
+<div class="row paddingTopBottom20">
+  <div class="col-xs-12 text-center paddingTopBottom20"><button ng-click="validate()" class="button bgcolorLight fontHederColor">SEE MY OPTIONS</button></div>
+</div><!--row-->
+
+
+
+      </div>
+</div><!--scetion class-->
+
+</section>

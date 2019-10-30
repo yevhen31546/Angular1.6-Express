@@ -1,0 +1,22 @@
+<div class="row menu" ng-init="firstRunColoring">
+    <a href='/about/age'>
+      <div class="col-xs-12 col-sm-3 text-center menuelem" ng-attr-style="background-color:{{ menu_about.backgroundColor }}; color:{{ menu_about.color }};">
+        <div class="elem">1. About you</div>
+      </div>
+    </a>
+    <a href='pension/pot' ng-click="validUpToPension()" class='linkPension'>
+      <div class="col-xs-12 col-sm-3 text-center menuelem linkPension" ng-attr-style="background-color:{{ menu_pension.backgroundColor }}; color:{{ menu_pension.color }};">
+      <div class="elem linkPension">2. Your pensions</div>
+      </div>
+    </a>
+    <a href='plans/salary' ng-click="validUpToPlans()" class="linkPlans">
+      <div class="col-xs-12 col-sm-3 text-center menuelem linkPlans" ng-attr-style="background-color:{{ menu_plans.backgroundColor }}; color:{{ menu_plans.color }};">
+          <div class="elem linkPlans">3. Your contributions</div>
+      </div>
+    </a>
+    <a href='options/table' ng-click="validUpToOptions()" class="linkOptions">
+    <div class="col-xs-12 col-sm-3 text-center menuelem linkOptions" ng-attr-style="background-color:{{ menu_options.backgroundColor }}; color:{{ menu_options.color }};">
+        <div class="elem linkOptions">4. Your options</div>
+      </div>
+    </a>
+</div><!--row-->

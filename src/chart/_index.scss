@@ -1,0 +1,58 @@
+.img-center {margin:0 auto;}
+
+section.lr-home-slider {
+
+  figure[lr-background="images/home/slide-c.jpg"]:before {
+    background: linear-gradient(to right, transparent 20%,$black 100%) !important;
+  }
+
+  img[src='images/home/at-retirement-monitor.png'] {
+    margin-left: -10rem;
+    margin-bottom: -15rem;
+    max-width: 120%;
+  }
+}
+
+section.lr-home-section img[src='images/home/piggy3d-xs.png'] {
+  margin-bottom: -4rem;
+  margin-right: -3rem;
+}
+
+section.lr-home-section img[src='images/home/thumbsup-xs.png'] {
+  margin-left: -2rem;
+  margin-bottom: -2rem;
+}
+
+section.lr-home-section img[src='images/home/heart3d-xs.png'] {
+  margin-right: -4rem;
+  margin-bottom: -3rem;
+}
+
+@media only screen and (min-width : 768px) {
+  section.lr-home-section img[src='images/home/microphone.png'] {
+    left: 3rem;
+    bottom: -2px;
+  }
+
+  section.lr-home-section img[src='images/home/piggy3d.png'] {
+    top: -6rem;
+    right: -10rem;
+  }
+
+  section.lr-home-section img[src='images/home/thumbsup.png'] {
+    left: -9rem;
+    top: -5rem;
+  }
+
+  section.lr-home-section img[src='images/home/heart3d.png'] {
+    top: -5rem;
+    right: -13rem;
+  }
+}
+
+@media only screen and (min-width : 992px) {
+  section.lr-home-slider img[src='images/home/at-retirement-monitor.png'] {
+    margin-left: -20rem;
+    margin-bottom: -22rem;
+  }
+}

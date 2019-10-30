@@ -1,0 +1,108 @@
+<!-- <section ng-controller="AgeController" >
+ <personal-form></personal-form>
+</section> -->
+<section ng-controller="AgeController">
+  <div class="section padding-bottom-40  paddingTop20">
+  <div class="container">
+    <div class="row boxshadow">
+      <div class="col-xs-12 mainarea ">
+        <main-menu></main-menu>
+            <!--AGE Content-->
+              <div class="row paddingTop20">
+                  <div class="col-xs-12" ng-attr-style="color:{{ appData.branding.mainColor }}">
+                    <h5 class="bold text-center paddingTop30  uppercase mainColor">A LITTLE ABOUT YOU</h5>
+                  </div>
+                  <!-- <div class="col-xs-12 col-sm-8 col-sm-offset-2" ng-attr-style="color:{{ appData.branding.mainColorDark }}">
+                    <div class="text-center paddingTop10 paddingBottom30 font11 tooltip-container">
+                      We need this information to display your average life expectance and to calculate your State Pension.
+                      <div class="tooltip"><i class="fas fa-info-circle fa-lg"></i>
+                        <span class="tooltiptext">
+                          How is my life expectancy calculated?
+                          <br><br>
+                            Your life expectancy is calculated using the Office for National Statistics data <a target="_blank" href="https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/lifeexpectancies/articles/howlongwillmypensionneedtolast/2015-03-27">here</a>.
+                          <br><br><br>
+                          
+                          
+                          How is the State Pension calculated?
+                          <br><br>
+                          If you are a man born on or after 6 April 1951 or a woman born on or after 6 April 1953 then we assume you’ll get the full amount of the new State Pension in force from 6 April 2016 - but the amount you get depends on your National Insurance Contribution record. You may get more or less than this.
+                          
+                          If you were born before these dates, we assume you are receiving the full basic State Pension that applied up to 5 April 2016.
+                          
+                          You can find out more about the new State Pension and how to get a State Pension statement <a target="_blank" href="https://www.yourpension.gov.uk/">here</a>.
+                      </span>
+                      </div>
+                    </div>
+                  </div> -->
+              </div><!--div-->
+
+              <div class="row paddingTop20 paddingBottom20">
+                  <div class="col-xs-12 text-center"><h2 class="text-center">What is your date of birth?</h2></div>
+              </div><!--row-->
+
+          <div class="row paddingBottom30">
+                <div class="col-xs-12 text-center">
+                  <!--Directive to implement Jquery code-->
+                  <dob></dob>
+                </div>
+          </div>
+
+
+
+
+
+
+            <!--End: Age Content-->
+      </div>
+      <steps></steps>
+    </div><!--row-->
+  </div>
+</div><!--scetion class-->
+</section>
+
+
+
+  </div>
+</div>
+</section>
+<style>
+  .tooltip-container .tooltip {
+    position: relative;
+    display: inline-block;
+  }
+  .tooltip-container .tooltip i {
+    font-size: 12px;
+  }
+  .tooltip-container .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 500px;
+    background-color: black;
+    color: #fff;
+    text-align: left;
+    border-radius: 6px;
+    padding: 5px 5px 5px 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 150%;
+    left: 50%;
+    margin-left: -250px;
+    font-size: 12px;
+    word-break: break-all;
+  }
+  
+  .tooltip .tooltiptext::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: black transparent transparent transparent;
+  }
+  
+  .tooltip:hover .tooltiptext {
+      visibility: visible;
+  }
+  </style>
+  

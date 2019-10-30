@@ -1,0 +1,142 @@
+
+<section ng-controller="AdvancedSettingsController">
+  <div class="section padding-bottom-40  paddingTop20">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-8 col-sm-offset-2 ">
+            <!--OPTION TABLE Content-->
+
+<form name="myForm">
+
+            <!--header-->
+            <div class="row  paddingBottom20">
+               <div class="col-xs-12 text-center">
+                 <h4 class="bold">Assumptions</h4>
+                 <div>Here you can modify the default assumptions.</div>
+               </div>
+            </div><!--row-->
+
+
+            <!--Growth rate-->
+            <div class="row paddingBottom30 paddingTop30 mainarea">
+              <div class="col-xs-12 col-md-6">
+                <div class='font15'>Growth Rate</div>
+              </div>
+              <div class="col-xs-12 col-md-6">
+                <div class="mainColorLight font08 bold uppercase">CHOOSE FROM LOW, MEDIUM OR HIGH RISK</div>
+                <div>
+                  <select ng-model="growthRateText" name="" id="" class="form-control normalForm" ng-change="changeGrowth()">
+                    <option value="low">{{ appData.investment_return_arr.low }}%</option>
+                    <option value="mid">{{ appData.investment_return_arr.mid }}%</option>
+                    <option value="high">{{ appData.investment_return_arr.high }}%</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+
+            <!--Tfc Token-->
+            <div class="row paddingBottom30 paddingTop30 mainarea">
+              <div class="col-xs-12 col-md-6">
+                <div class='font15'>Tax free cash</div>
+              </div>
+              <div class="col-xs-12 col-md-6 nopadding">
+                  <div class="col-xs-12 ">
+                      <input type="range" name="range" ng-model="tfcToken" min="0" max="{{ appData.max_TFC }}">
+                      <div class="text-center font12">{{ tfcToken }}%</div>
+                  </div>
+                 </div>
+              </div>
+
+
+
+              <!--Inflation-->
+              <div class="row paddingBottom30 paddingTop30 mainarea">
+                <div class="col-xs-12 col-md-6">
+                  <div class='font15'>Inflation</div>
+                </div>
+                <div class="col-xs-12 col-md-6">
+                    <div class="col-xs-4 nopadding">
+                        <input  type="number" class="form-control normalForm" name="inflation" ng-model="inflation" min="0" max="100" ng-pattern="/^([0-9]{1,2})(\.\d{1,4})?$/" step="0.01" required>
+                    </div>
+                    <div class="col-xs-8 font17 nopadding">&nbsp;%</div>
+                    <br><div class="errorMsg" style="position: absolute;top:-33px;"  class="help-block text-left" ng-show="!myForm.inflation.$valid">This is not a valid percentage!</div>
+                </div>
+              </div><!--row-->
+
+
+              <!--Pension Charge-->
+              <div class="row paddingBottom30 paddingTop30 mainarea">
+                <div class="col-xs-12 col-md-6">
+                  <div class='font15'>Pension Charges (AMC)</div>
+                </div>
+                <div class="col-xs-12 col-md-6">
+                    <div class="col-xs-4 nopadding">
+                         <input type="number" class="form-control normalForm" name="pension_charge" ng-model="pension_charge" ng-pattern="/^([0-9]{1,2})(\.\d{1,4})?$/" step="0.01" required />
+                    </div>
+                    <div class="col-xs-8 font17 nopadding">&nbsp;%</div>
+
+                <div class="errorMsg" style="position: absolute;top:-33px;" ng-show="!myForm.pension_charge.$valid">This is not a valid percentage!</div>
+
+                </div>
+              </div><!--row-->
+
+
+            <!--Growth rate
+            <div class="row paddingBottom30 paddingTop30 mainarea">
+              <div class="col-xs-12 col-md-6">
+                <div class="mainColorLight font08 bold uppercase">Nominal vs. Realterm</div>
+                <div class='font15'>Do you want to see the values in real term?</div>
+              </div>
+              <div class="col-xs-12 col-md-6">
+                <div class="mainColorLight font08 bold uppercase">Relaterm?</div>
+                <div>
+                  <select ng-model="realterms" name="" id="" class="form-control normalForm">
+                    <option value="yes">yes</option>
+                    <option value="no">no</option>
+                  </select>
+                </div>
+              </div>
+            </div>-->
+
+
+            <!--Text-->
+            <div class="paddingBottom20 row">
+              <div class="col-xs-12 font09">
+              <hr>
+              <div class="text-center" ng-controller="ModalController as ModalCtrl" ng-init="init(appData.branding)">
+                <a ng-click="ModalCtrl.open('siemenropnote', 'lg')" class="button bgcolorMain fontHederColor">Click here for detailed points on the methodology, assumptions and limitations</a>
+              </div>
+              <br/>
+            <b>The figures in this tool do not include any tax charges that arise as a result of exceeding the pension allowances:</b><br>
+            &middot; <i>The Annual Allowance is a restriction on contributions and is currently £40,000</i><br>
+            &middot; <i>It may reduce to a minimum of £10,000 if your adjusted annual income exceeds £150,000</i><br>
+            &middot; <i>If you access your pension flexibly your Money Purchase Annual Allowance reduces to £4,000</i><br>
+            &middot; <i>The Lifetime Allowance is a limit on your total pension fund from all sources and is currently £1,055,000</i><br>
+              </div>
+            </div>
+
+            <!--BackLink-->
+            <div class="row paddingBottom30 paddingTop30">
+              <!--<div class="col-xs-12 text-left">
+                  <a class="" href="/options/{{backLink}}"><span class="glyphicon font08 glyphicon-chevron-left"></span> Go Back</a>
+              </div>-->
+              <div class="col-xs-12 text-center">
+                  <br><div class="errorMsg" class="help-block text-left" ng-show="myForm.pension_charge.$modelValue + myForm.inflation.$modelValue >= appData.investment_return_arr[growthRateText]">The growth rate must be bigger than the Inflation plus the Pension Change. Please makes changes above as required</div>
+                  <a ng-if="myForm.pension_charge.$modelValue + myForm.inflation.$modelValue < appData.investment_return_arr[growthRateText]" class="button bgcolorMain fontHederColor" href="/options/{{backLink}}">Continue <span class="glyphicon font09 glyphicon-chevron-right"></span></a>
+              </div>
+            </div>
+
+      </form><!--only for validation-->
+  </div>
+</div>
+
+
+
+</div><!--scetion class-->
+
+
+
+
+
+</section>

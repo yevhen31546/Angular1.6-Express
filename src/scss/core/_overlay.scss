@@ -1,0 +1,58 @@
+/* The Overlay (background) */
+.overlay {
+    /* Height & width depends on how you want to reveal the overlay (see JS below) */
+    height: 100%;
+    width: 100%;
+    position: fixed; /* Stay in place */
+    z-index: 3000 !important; /* Sit on top */
+    left: 0;
+    top: 0;
+    background-color: rgb(114,114,114); /* Black fallback color */
+    background-color: rgba(114,114,114, 0.95); /* Black w/opacity */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+
+    /*ANIMATION*/
+    .glyphicon-refresh-animate {
+        -animation: spin 1.4s infinite linear;
+        -webkit-animation: spin2 1.4s infinite linear;
+    }
+
+    @-webkit-keyframes spin2 {
+        from { -webkit-transform: rotate(0deg);}
+        to { -webkit-transform: rotate(360deg);}
+    }
+
+    @keyframes spin {
+        from { transform: scale(1) rotate(0deg);}
+        to { transform: scale(1) rotate(360deg);}
+    }
+
+
+}
+
+/* Position the content inside the overlay */
+.overlay-content {
+    background-color:#ffffff;
+    width:400px;
+    height:300px;
+    position: fixed; /* or absolute */
+    top: 50%;
+    left: 50%;
+    margin-top: -150px;
+   margin-left: -200px;
+   -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  border:1px solid #515151;
+  padding:20px;
+}
+
+/* The navigation links inside the overlay */
+.overlay h1 {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 50px;
+    display: block; /* Display block instead of inline */
+    transition: 0.3s; /* Transition effects on hover (color) */
+}

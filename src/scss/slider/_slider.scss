@@ -1,0 +1,111 @@
+/*hide glowing outline */
+span.rz-pointer.rz-pointer-min.rz-active{
+    outline: none;
+}
+
+/*Slider line do not clickable*/
+.rzslider.rz-vertical .rz-bar-wrapper{
+    pointer-events: none;
+    cursor: default;
+}
+
+.custom-slider.rzslider .rz-bar {
+  width:2px;
+  background: #efedea;
+  height: 10px;
+  width:96%;
+}
+.custom-slider.rzslider .rz-selection {
+  background: #efedea;
+}
+
+.custom-slider.rzslider .rz-pointer {
+  width: 30px;
+  height:16px;
+  margin-left:-15px;
+  margin-top:11px;
+  background-color: #545454;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+   border-radius: 3px;
+}
+
+
+.custom-slider.rzslider  .rz-tick {
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+   border-radius: 0px;
+   margin-left:0px !important;
+   margin-top:-30px;
+   width: 2px;
+   background:#efedea;
+
+}
+
+
+.custom-slider.rzslider .rz-pointer:after {
+  display: none;
+}
+
+.custom-slider.rzslider .rz-bubble {
+  bottom: -40px;
+  visibility: hidden;
+  color:white;
+}
+
+.custom-slider.rzslider .rz-limit {
+  font-weight: bold;
+  color:  #efedea;
+  top:-70px;
+  visibility: visible;
+  margin-left:-10px;
+  color:#c4c4c4;
+}
+
+
+
+.custom-slider.rzslider .rz-tick.rz-selected {
+  background: #efefef;
+}
+
+/*
+* Income Target Slider
+*/
+.incomeTarget-slider.rzslider{
+
+  .rz-bar {
+    width:2px;
+    background: #ffffff;
+  }
+
+  .rz-pointer {
+    margin-left:-5px;
+    width: 45px;
+    height:120px;
+    background:url(../images/scroller.png);
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    cursor:move;
+    cursor:-webkit-grab;
+    cursor:-moz-grab;
+    cursor:grab;
+  }
+
+  //Hide blue dot in the scrolller
+  .rz-pointer:after{
+    color:white !important;
+    background-color:white !important;
+    width:1px !important;
+    height:1px !important;
+  }
+  .rz-pointer:active{
+  }
+
+
+
+}//income target slider
+
+.incometargetplusclass,.incometargetminusclass{
+  cursor: pointer !important;
+}

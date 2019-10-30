@@ -1,0 +1,18 @@
+.lr-clients {
+  margin-top: 5rem;
+  text-align: center;
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  ul li {
+    display: inline-block;
+  }
+
+  ul li img {
+    max-height: 80px;
+    margin: 5rem;
+  }
+}

@@ -1,0 +1,140 @@
+<!-- <section ng-controller="PersonalController" >
+ <personal-form></personal-form>
+</section> -->
+<section ng-controller="PersonalController" >
+  <div class="section padding-bottom-40  paddingTop20">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 mainarea boxshadow">
+        about main XXX
+      </div>
+    </div><!--row-->
+
+
+    <br /><br /><br /><br />
+
+    <input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="14"/>
+    <div class="row">
+      <div class="col-xs-12">
+        <form name="userForm" ><!--ng-submit="submitForm()"-->
+
+          <div class="row">
+            <div class="col-sm-6 text-right">DOB</div>
+            <div class="col-sm-6">
+              <input name="dob" type="text" class="form-control" ng-model="userdata.DOB">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-6 text-right">Gender</div>
+            <div class="col-sm-6">
+              <select name="gender" id="gender" class="form-control" ng-model="userdata.gender">
+                <option selected value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-6 text-right">Current Value of all pension pots</div>
+            <div class="col-sm-6">
+              <input name="pensionpots" type="number" class="form-control" ng-model="userdata.pensionpots" ng-change="submitForm()">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-6 text-right">Final Salary Pension</div>
+            <div class="col-sm-6">
+              <input name="finalsalarypension" type="number" class="form-control" ng-model="userdata.finalsalarypension" ng-change="submitForm()">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-6 text-right">Include State Pension</div>
+            <div class="col-sm-6">
+              <select name="incStatePension" id="gender" class="form-control" ng-model="userdata.incStatePension" ng-change="submitForm()">
+                <option selected value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-6 text-right">Your current annual salary before tax</div>
+            <div class="col-sm-6">
+              <input name="currentAnnualSalary" type="number" class="form-control" ng-model="userdata.currentAnnualSalary" ng-change="submitForm()">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6 text-right">What percentage of your income do you pay into your retirement savings plan?</div>
+            <div class="col-sm-6">
+              <input name="perYouPayRetPlan" type="number" class="form-control" ng-model="userdata.perYouPayRetPlan" ng-change="submitForm()">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6 text-right">What percentage of your income does your employer pay into your retirement savings plan?</div>
+            <div class="col-sm-6">
+              <input name="perEmpPayRetPlan" type="number" class="form-control" ng-model="userdata.perEmpPayRetPlan" ng-change="submitForm()">
+            </div>
+          </div>
+
+
+          <div class="row">
+            <div class="col-sm-6 text-right">Selected Retirement Age (SRA)</div>
+            <div class="col-sm-6">
+              <input name="selectedRetAge" type="number" class="form-control" ng-model="userdata.selectedRetAge" ng-change="submitForm()">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-6 text-right">What is your TARGET income (in retirement)?</div>
+            <div class="col-sm-6">
+              <input name="targetIncome" type="number" class="form-control" ng-model="userdata.targetIncome" ng-change="submitForm()">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-6 text-right">Growth rate</div>
+            <div class="col-sm-6">
+              <select name="growthRateText" id="gender" class="form-control" ng-model="userdata.growthRateText" ng-change="submitForm()">
+                <option selected value="low">Low</option>
+                <option value="mid">Mid</option>
+                <option value="high">High</option>
+              </select>
+            </div>
+          </div>
+
+
+          <div class="row">
+            <div class="col-sm-6 text-right">TFC taken</div>
+            <div class="col-sm-6">
+              <input name="tfcTaken" type="number" class="form-control" ng-model="userdata.tfcTaken" ng-change="submitForm()">
+            </div>
+          </div>
+
+
+          <div class="row">
+            <div class="col-sm-6 text-right">Maintain income in real terms?</div>
+            <div class="col-sm-6">
+              <select name="growthRateText" id="gender" class="form-control" ng-model="userdata.realterms" ng-change="submitForm()">
+                <option selected value="yes">Yes</option>
+                <option value="no">No</option>
+              </select>
+            </div>
+          </div>
+
+
+
+          <div class="col-xs-12 margin-top-30 text-right">
+            <!--<button class="btn btn-primary btn-block">Submit</button>-->
+            <a class="btn btn-primary" href="/chart">Chart >></a>
+          </div>
+
+
+        </form>
+          <span ng-click="fillform()" class="btn">Fill the form</span>
+    </div>
+  </div><!--row-->
+  </div>
+</div>
+</section>

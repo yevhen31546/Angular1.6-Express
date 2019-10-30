@@ -1,0 +1,59 @@
+.submit-form-bottom {
+
+  textarea,input{
+    text-align:left !important;
+    font-weight: normal;
+    text-transform: none;
+
+  }
+
+  span.glyphicon{
+    position:absolute !important;
+    right:30px;
+    top:48px;
+  }
+
+  .glyphicon-ok{color:$green;}
+  .glyphicon-remove{ color:$red;}
+
+  p{color:$red;font-size:0.8em;}
+  button{text-transform: capitalize !important;}
+
+}
+
+.printform{
+  .input-group{
+  display: table;
+  border-collapse: collapse;
+  width:100%;
+}
+.input-group > div{
+  display: table-cell;
+  vertical-align: middle;  /* needed for Safari */
+}
+
+.input-group input{
+  border: 0;
+  display: block;
+  width: 100%;
+  padding: 8px;
+  -webkit-border-radius: 0px;
+-moz-border-radius: 0px;
+border-radius: 0px;
+  text-align:left;
+   text-transform: lowercase;
+   font-weight: 400 !important;
+   font-size:0.9em;
+
+}
+.input-group button{
+  border: 0;
+  display: block;
+  width: 60%;
+  padding: 8px;
+  -webkit-border-radius: 0px;
+-moz-border-radius: 0px;
+border-radius: 0px;
+font-size:0.9em;
+}
+}
