@@ -63,7 +63,7 @@
     "font-awesome": "^4.7.0",
     "gsap": "^1.20.2",
     "jquery": "^3.2.1",
-    "lodash": "^4.17.4",
+    "lodash": "^4.17.21",
     "ng-combo-date-picker": "^1.5.1",
     "ngstorage": "^0.3.11",
     "owl.carousel": "^2.2.0",
